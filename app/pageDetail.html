@@ -70,17 +70,23 @@
 
 <template id="widget-template">
     <!-- Im IMG-Element soll immer das passende Wetter-Icon zur aktuellen Wetterlage angezeigt werden (siehe API-Beschreibung im Handout) -->
-    <span class="amount">+10€</span>
+    <span class="amount">0€</span>
     <span class="line">|</span>
-    <span class="title">Gehalt</span>
+    <span class="title">?</span>
     <span class="icons"></span>
     <span class="category">
         <button>Freizeit</button>
         <button>Unterhaltung</button>
     </span>
-    <span class="date">19.12.2022</span>
-    <span class="delete">D</span>
-    <span class="edit">E</span>
+    <span class="date">no date</span>
+    <span class="delete">
+        <img src="./resources/delete.png" width="30vw" height="30vw" alt="delete">
+        <!--<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by feen - Flaticon</a>-->
+    </span>
+    <span class="edit">
+        <img src="./resources/write.png" width="30vw" height="30vw" alt="edit">
+        <!--<a href="https://www.flaticon.com/free-icons/write" title="write icons">Write icons created by feen - Flaticon</a>-->
+    </span>
 </template>
 
 </html>

@@ -1,5 +1,19 @@
-class Widget{
-    constructor(amount, sign, title, repeated ,category, date, element){
+import Observable from "./Observable.js";
+
+let deleteButton, editButton;
+
+//Initialisiert die Listener
+function initEventListener(widget, el) {
+    deleteButton = el.querySelector(".delete");
+    deleteButton.addEventListener("click", widget.onDeleteButtonClicked.bind(widget));
+    editButton = el.querySelector(".edit");
+    editButton.addEventListener("click", widget.onEditButtonClicked.bind(widget));
+}
+
+
+class Widget extends Observable{
+    constructor(amount, sign, title, repeated ,category, date, element, manager){
+        super();
         this.deployed = false;
         this.signPositive = sign;
         this.amount = amount;
@@ -8,6 +22,8 @@ class Widget{
         this. category = category;
         this.date = date;
         this.element = element;
+        this.manager = manager;
+        initEventListener(this, this.element);
     }
 
     //alle Wetterinformationen werden den zugehörigen HTML-Elementen zugeordnet
@@ -35,12 +51,17 @@ class Widget{
 
     //Widget wird gelöscht
     onDeleteButtonClicked() {
-        //
+        this.manager.removeWidget(this);
     }
 
     //Wetterdaten werden nochmals abgefragt bzw. aktualisiert
-    onRefreshButtonClicked() {
-        //
+    onEditButtonClicked() {
+        this.manager.popupManager.openEditPopUp(this);
+    }
+
+    updatePath(element) {
+        this.element = element;
+        initEventListener(this. this.element);
     }
 }
 

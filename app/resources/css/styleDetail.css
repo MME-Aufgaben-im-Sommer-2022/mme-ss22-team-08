@@ -67,6 +67,11 @@
   padding-right: 5%;
 }
 
+.category button {
+  border-radius: 20px;
+  padding: 5px;
+  margin:5px;
+}
 .date {
   padding-right: 5%;
 }
