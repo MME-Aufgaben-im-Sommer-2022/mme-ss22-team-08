@@ -30,12 +30,15 @@ class PopupManager{
         this.openPopUp();
         let title = this.popup.querySelector("h2");
         title.innerHTML = "Neuen Eintrag erstellen";
+        buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
     }
 
     openEditPopUp(widget) {
         let title = this.popup.querySelector("h2");
         title.innerHTML = "Eintrag bearbeiten";
+        buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
         this.openPopUp();
+
 
         document.querySelector(".inputAmount").value = widget.amount;
         document.querySelector(".inputTitle").value = widget.title;
@@ -49,7 +52,9 @@ class PopupManager{
     closePopUp(successful) {
         if (successful) {
             if(this.isEditing) {
-                //here
+                this.updateInput(this.editingWidget);
+                this.isEditing = false;
+                this.manager.reloadAllWidgets();
             } else {
                 this.readInput();
             }
@@ -64,10 +69,22 @@ class PopupManager{
             let amount = document.querySelector(".inputAmount").value,
             title = document.querySelector(".inputTitle").value,
             date = document.querySelector(".inputDate").value,
+            category = document.querySelector('input[name="category"]:checked').value,
             repeated = document.querySelector(".inputRepeat").checked;
+
+            if(amount === "") {
+                return;
+            }
     
-            this.manager.addNewWidget(amount,true,title,repeated,[],date);
+            this.manager.addNewWidget(amount,title,repeated,[category],date);
         
+    }
+
+    updateInput(widget) {
+        widget.amount = document.querySelector(".inputAmount").value;
+        widget.title = document.querySelector(".inputTitle").value;
+        widget.date = document.querySelector(".inputDate").value;
+        widget.repeated = document.querySelector(".inputRepeat").checked;
     }
     
     clearPopup() {

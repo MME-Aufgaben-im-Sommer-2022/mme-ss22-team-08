@@ -5,17 +5,20 @@ let deleteButton, editButton;
 //Initialisiert die Listener
 function initEventListener(widget, el) {
     deleteButton = el.querySelector(".delete");
-    deleteButton.addEventListener("click", widget.onDeleteButtonClicked.bind(widget));
     editButton = el.querySelector(".edit");
-    editButton.addEventListener("click", widget.onEditButtonClicked.bind(widget));
+    if (deleteButton !== null && editButton !== null) {
+        deleteButton.addEventListener("click", widget.onDeleteButtonClicked.bind(widget));
+        editButton.addEventListener("click", widget.onEditButtonClicked.bind(widget));
+    }
+    
 }
 
 
 class Widget extends Observable{
-    constructor(amount, sign, title, repeated ,category, date, element, manager){
+    constructor(amount, title, repeated ,category, date, element, manager){
         super();
         this.deployed = false;
-        this.signPositive = sign;
+        this.signPositive = amount >= 0;
         this.amount = amount;
         this.title = title;
         this.repeated = repeated;
@@ -27,20 +30,23 @@ class Widget extends Observable{
     }
 
     //alle Wetterinformationen werden den zugehörigen HTML-Elementen zugeordnet
-    SetDisplay() {
+    SetDisplay(showAllInformation) {
         let amountString;
         if(this.signPositive) {
             amountString = "+ " + this.amount + "€";
         } else {
-            amountString = "- " + this.amount + "€";
+            amountString = "- " + this.amount*-1 + "€";
         }
         this.element.querySelector(".amount").innerHTML = amountString;
         this.element.querySelector(".title").innerHTML = this.title;
         //this.element.querySelector(".icons").children[1].innerHTML =;
-        for(let i = 0; i < this.category.length; i++) {
-            this.element.querySelector(".category").children[i].innerHTML = this.category[i];
+        if(showAllInformation) {
+            for(let i = 0; i < this.category.length; i++) {
+                this.element.querySelector(".category").children[i].innerHTML = this.category[i];
+            }
+            this.element.querySelector(".date").innerHTML = this.date;
         }
-        this.element.querySelector(".date").innerHTML = this.date;
+        
     }
 
     //Setzt deployed auf wahr und lässt den WidgetManager das Widget zur Liste hinzufügen 
@@ -61,7 +67,7 @@ class Widget extends Observable{
 
     updatePath(element) {
         this.element = element;
-        initEventListener(this. this.element);
+        initEventListener(this, this.element);
     }
 }
 

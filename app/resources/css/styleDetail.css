@@ -5,9 +5,9 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #008cff;
     overflow-x: hidden;
-    padding-top: 60px;
+    padding-top: 20px;
   }
   
   .sidebar a {
@@ -19,8 +19,20 @@
     transition: 0.3s;
   }
   
-  .sidebar a:hover {
-    color: #f1f1f1;
+  .sidebar img {
+    padding:5px;
+    filter: invert(1);
+  }
+
+  .sidebar img:hover {
+    background-color: #006dc6;
+    border-radius: 10px;
+    filter: invert(0);
+  }
+
+  .sidebarSelected {
+    background-color: #ff9239;
+    border-radius: 10px;
   }
 
   .detail-page {
@@ -122,28 +134,27 @@
   top: 50%;
   left: 50%;
   width: 30%;
-  height: 80%;
+  height: fit-content;
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
+  padding: 2vw;
 }
 
 .inputSpan {
-  text-align: center;
+  text-align: left;
   width: 80%;
-  padding: 3%;
+  padding: 1%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 .inputSpan input {
-  padding: 3%;
+  padding: 1%;
   padding-left: 10%;
 }
 
-
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -151,14 +162,12 @@
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -197,11 +206,14 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+#category {
+  padding: 5px;
 }

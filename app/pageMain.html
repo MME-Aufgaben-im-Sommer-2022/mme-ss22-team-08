@@ -11,14 +11,28 @@
 <body>
     <div class="ui">
         <div id="sidebar" class="sidebar">
-            <a href="./pageMain.html">1st</a>
-            <a href="./pageDetail.html">2nd</a>
-            <a href="./index.html">3rd</a>
-            <a href="./pageLogin.html">4th</a>
+            <a href="./pageMain.html">
+                <img src="./resources/home.png" width="40vw" height="40vw" alt="Home" class="sidebarSelected">
+            </a>
+            <a href="./pageDetail.html">
+                <img src="./resources/write.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <a href="./index.html">
+                <img src="./resources/wallet.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <a href="./pageLogin.html">
+                <img src="./resources/options.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <!--
+                <a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by feen - Flaticon</a>
+                (siehe Widget edit)
+                <a href="https://www.flaticon.com/free-icons/wallet" title="wallet icons">Wallet icons created by feen - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by feen - Flaticon</a>
+            -->
         </div>
+        <h1>Main-Page</h1>
         <div class="flex-container">
             <div class="flex-items">
-                <h1>Main-Page</h1>
                 <div class="container">
                     <h2>Aktueller Kontostand</h2>
                 </div>
@@ -27,8 +41,13 @@
                 </div>
             </div>
             <div class="flex-items">
-                <div class="container">
+                <div class="containerDouble">
                     <h2>Letzte Transaktionen</h2>
+                    
+                    <ul class="widgetlist">
+
+                    </ul>
+                    <button>Neuer Eintrag</button>
                 </div>
             </div>
             <div class="flex-items">
@@ -41,8 +60,64 @@
             </div>
          </div>
     </div>
+    <div class="frozen">
+        <div class="popup">
+            <h2>Neuen Eintrag Erstellen</h2>
+            <div class="popupInfo">
+                <span class="inputSpan">
+                    <p>Betrag:</p>
+                    <input class="inputAmount" type="number">
+                    <p>€</p>
+                </span>
+                <span class="inputSpan">
+                    <p>Titel:</p>
+                    <input class="inputTitle">
+                </span>
+                <span class="inputSpan">
+                    <p>Datum:</p>
+                    <input class="inputDate" type="date">
+                </span>
+                <span class="inputSpan">
+                    <p>Kategorie:</p>
+                    <div>
+                        <input type="radio" id="einnahmen" name="category" value="Einnahmen">
+                        <label for="Einnahmen">Einnahmen</label><br>
+                        <input type="radio" id="unterhaltung" name="category" value="Unterhaltung">
+                        <label for="Unterhaltung">Unterhaltung</label><br>
+                        <input type="radio" id="haushalt" name="category" value="Haushalt">
+                        <label for="Haushalt">Haushalt</label><br>
+                        <input type="radio" id="lebensmittel" name="category" value="Lebensmittel">
+                        <label for="Lebensmittel">Lebensmittel</label> <br>
+                        <input type="radio" id="versicherung" name="category" value="Versicherung">
+                        <label for="Versicherung">Versicherung</label>
+                    </div>
+                </span>
+                <span class="inputSpan">
+                    <p>Person hinzufügen:</p>
+                </span>
+                <span class="inputSpan">
+                    <p>Wiederholen:</p>
+                    <label class="switch">
+                        <input class="inputRepeat" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </span>
+            </div>
+            <span class="inputSpan">
+                <button class="exitPopup">Abbrechen</button>
+                <button class="closePopup">Eintrag Erstellen</button>
+            </span>
+            
+        </div>
+    </div>
 
    <script type="module" src="./src/indexMain.js"></script>
 </body>
+
+<template id="widget-template">
+    <span class="amount">0€</span>
+    <span class="title">?</span>
+    <span class="icons"></span>
+</template>
 
 </html>

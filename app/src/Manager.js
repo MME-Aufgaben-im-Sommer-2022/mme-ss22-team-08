@@ -5,9 +5,10 @@ import PopupManager from "./PopupManager.js";
 
 class Manager{
 
-    constructor() {
+    constructor(type) {
         this.widgetList = [];
         this.popupManager = new PopupManager(this);
+        this.type= type;
     }
 
     removeWidget(widget) {
@@ -34,18 +35,19 @@ class Manager{
         widgetTemp.setAttribute("class","widget");
         widgetTemp.innerHTML = WIDGET_TEMPLATE_STRING;
         list.appendChild(widgetTemp);
+        console.log(widgetTemp);
         widget.updatePath(widgetTemp);
         widget.SetDisplay();
     }
     
-    addNewWidget(amount, sign, title, repeated, category, date) {
+    addNewWidget(amount, title, repeated, category, date) {
         let list = document.querySelector(".widgetlist"),
          widgetTemp = document.createElement("li");
         widgetTemp.setAttribute("class","widget");
         widgetTemp.innerHTML = WIDGET_TEMPLATE_STRING;
         list.appendChild(widgetTemp);
-        let widget = new Widget(amount, sign, title, repeated, category, date, widgetTemp, this); // eslint-disable-line
-        widget.SetDisplay();
+        let widget = new Widget(amount, title, repeated, category, date, widgetTemp, this); // eslint-disable-line
+        widget.SetDisplay(this.type ==="detail");
         this.widgetList.push(widget);
         console.log(this.widgetList);
     }
