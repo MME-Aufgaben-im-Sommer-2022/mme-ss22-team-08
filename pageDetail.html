@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MME: Projekte im SS 2022</title>
+    <link rel="stylesheet" href="./resources/css/styleDetail.css">
+</head>
+
+<body>
+    <div class="ui">
+        <div id="sidebar" class="sidebar">
+            <a href="./pageMain.html">
+                <img src="./resources/home.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <a href="./pageDetail.html">
+                <img src="./resources/write.png" width="40vw" height="40vw" alt="Home" class="sidebarSelected">
+            </a>
+            <a href="./index.html">
+                <img src="./resources/wallet.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <a href="./pageLogin.html">
+                <img src="./resources/options.png" width="40vw" height="40vw" alt="Home">
+            </a>
+        </div>
+        <div class="detail-page">
+            <h1>Überblick</h1>
+            <button>new</button>
+        <div>
+            <ul class="widgetlist">
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="frozen">
+        <div class="popup">
+            <h2>Neuen Eintrag Erstellen</h2>
+            <div class="popupInfo">
+                <span class="inputSpan">
+                    <p>Betrag:</p>
+                    <input class="inputAmount" type="number">
+                    <p>€</p>
+                </span>
+                <span class="inputSpan">
+                    <p>Titel:</p>
+                    <input class="inputTitle">
+                </span>
+                <span class="inputSpan">
+                    <p>Datum:</p>
+                    <input class="inputDate" type="date">
+                </span>
+                <span class="inputSpan">
+                    <p>Kategorie:</p> 
+                    <div>
+                        <input type="radio" id="einnahmen" name="category" value="Einnahmen">
+                        <label for="Einnahmen">Einnahmen</label><br>
+                        <input type="radio" id="unterhaltung" name="category" value="Unterhaltung">
+                        <label for="Unterhaltung">Unterhaltung</label><br>
+                        <input type="radio" id="haushalt" name="category" value="Haushalt">
+                        <label for="Haushalt">Haushalt</label><br>
+                        <input type="radio" id="lebensmittel" name="category" value="Lebensmittel">
+                        <label for="Lebensmittel">Lebensmittel</label> <br>
+                        <input type="radio" id="versicherung" name="category" value="Versicherung">
+                        <label for="Versicherung">Versicherung</label>
+                    </div>
+                </span>
+                    
+                <span class="inputSpan">
+                    <p>Person hinzufügen:</p>
+                </span>
+                <span class="inputSpan">
+                    <p>Wiederholen:</p>
+                    <label class="switch">
+                        <input class="inputRepeat" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </span>
+            </div>
+            <span class="inputSpan">
+                <button class="exitPopup">Abbrechen</button>
+                <button class="closePopup">Eintrag Erstellen</button>
+            </span>
+            
+        </div>
+    </div>
+
+   <script type="module" src="./src/indexDetail.js"></script>
+</body>
+
+
+<template id="widget-template">
+    <!-- Im IMG-Element soll immer das passende Wetter-Icon zur aktuellen Wetterlage angezeigt werden (siehe API-Beschreibung im Handout) -->
+    <span class="amount">0€</span>
+    <span class="line">|</span>
+    <span class="title">?</span>
+    <span class="icons"></span>
+    <span class="category">
+        <button>none</button>
+    </span>
+    <span class="date">no date</span>
+    <span class="delete">
+        <img src="./resources/delete.png" width="30vw" height="30vw" alt="delete">
+        <!--<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by feen - Flaticon</a>-->
+    </span>
+    <span class="edit">
+        <img src="./resources/write.png" width="30vw" height="30vw" alt="edit">
+        <!--<a href="https://www.flaticon.com/free-icons/write" title="write icons">Write icons created by feen - Flaticon</a>-->
+    </span>
+</template>
+
+</html>

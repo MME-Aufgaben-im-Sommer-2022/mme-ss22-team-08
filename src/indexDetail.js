@@ -1,10 +1,17 @@
+import Manager from "./Manager.js";
+
+let manager;
+
 function init() {
     console.log("### Starting MME Project ###"); // eslint-disable-line no-console
     let button = document.querySelector("button");
+    manager = new Manager("detail");
+    manager.reloadAllWidgets();
     button.onclick = function() {
-        console.log("clicked!"); // eslint-disable-line no-console
-        window.location.replace("./pageLogin.html");
+        manager.popupManager.openCreatePopUp();
     };
+    
+
 }
 
 init();
