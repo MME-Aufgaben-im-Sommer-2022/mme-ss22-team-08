@@ -89,7 +89,7 @@ margin-left: 10%;
     background-color:#ffffff;
     border-radius: 25px;
     width:100%;
-    height: 100%;
+    height: 80%;
   }
 
   .containerDouble {
@@ -97,7 +97,7 @@ margin-left: 10%;
     background-color:#ffffff;
     border-radius: 25px;
     width:100%;
-    min-height: 20vw;
+    min-height: 15vw;
     text-align: center;
   }
 
@@ -187,12 +187,12 @@ margin-left: 10%;
 }
 
 .inputSpan {
-  text-align: left;
+  text-align: center;
   width: 80%;
   padding: 1%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content:center;
 }
 
 .inputSpan input {
@@ -257,4 +257,18 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.firstPart {
+  align-self: left;
+  font-size: 150%;
+  margin-top: 5%;
+  color: #008cff;
+}
+
+.scoundPart {
+  align-self: left;
+  font-size: 150%;
+  margin-top: 5%;
+  color: black;
 }

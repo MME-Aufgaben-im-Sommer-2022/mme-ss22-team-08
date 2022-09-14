@@ -30,7 +30,7 @@ class PopupManager{
         this.openPopUp();
         let title = this.popup.querySelector("h2");
         title.innerHTML = "Neuen Eintrag erstellen";
-        buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
+        buttonClosePopUp.innerHTML = "Eintrag erstellen";
     }
 
     openEditPopUp(widget) {

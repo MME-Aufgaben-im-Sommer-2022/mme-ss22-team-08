@@ -3,7 +3,7 @@ function init() {
     let button = document.querySelector("button");
     button.onclick = function() {
         console.log("clicked!"); // eslint-disable-line no-console
-        window.location.replace("./pageMain.html");
+        window.location.replace("./pageLogin.html");
     };
 }
 
