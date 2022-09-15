@@ -37,7 +37,7 @@ class Manager{
         list.appendChild(widgetTemp);
         console.log(widgetTemp);
         widget.updatePath(widgetTemp);
-        widget.SetDisplay();
+        widget.SetDisplay(true);
     }
     
     addNewWidget(amount, title, repeated, category, date) {

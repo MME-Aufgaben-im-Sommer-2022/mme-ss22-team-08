@@ -22,7 +22,7 @@ class Widget extends Observable{
         this.amount = amount;
         this.title = title;
         this.repeated = repeated;
-        this. category = category;
+        this.category = category;
         this.date = date;
         this.element = element;
         this.manager = manager;

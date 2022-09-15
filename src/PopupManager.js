@@ -84,6 +84,7 @@ class PopupManager{
         widget.amount = document.querySelector(".inputAmount").value;
         widget.title = document.querySelector(".inputTitle").value;
         widget.date = document.querySelector(".inputDate").value;
+        widget.category = document.querySelector('input[name="category"]:checked').value;
         widget.repeated = document.querySelector(".inputRepeat").checked;
     }
     
