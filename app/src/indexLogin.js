@@ -1,5 +1,7 @@
-const client = new Client(),
-    account = new Account(client);
+// eslint-disable-next-line no-undef
+const client = new Appwrite.Client(),
+    // eslint-disable-next-line no-undef
+    account = new Appwrite.Account(client);
 
 function setupServerConnection() {
     client
