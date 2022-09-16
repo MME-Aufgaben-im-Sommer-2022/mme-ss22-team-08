@@ -26,7 +26,9 @@ class Widget extends Observable{
         this.date = date;
         this.element = element;
         this.manager = manager;
-        initEventListener(this, this.element);
+        if (this.element !== null) {
+            initEventListener(this, this.element);
+        }
     }
 
     //alle Wetterinformationen werden den zugehörigen HTML-Elementen zugeordnet
@@ -68,6 +70,17 @@ class Widget extends Observable{
     updatePath(element) {
         this.element = element;
         initEventListener(this, this.element);
+    }
+
+    convertToObject() {
+        let obj = {
+            amount: this.amount,
+            title: this.title,
+            repeated: this.repeated,
+            category: this.category,
+            date: this.date,
+        };
+        return obj;
     }
 }
 

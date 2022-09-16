@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-undef
 const client = new Appwrite.Client(),
     // eslint-disable-next-line no-undef
-    account = new Appwrite.Account(client);
+    account = new Appwrite.Account(client),
+    // eslint-disable-next-line no-undef
+    database = new Appwrite.Databases(client,"6324444bf0c125e7623c");
 
 function setupServerConnection() {
     client
@@ -14,6 +16,7 @@ function loginUserSession(email, password) {
         .then(response => {
             console.log(response);
             setCookie("userId", response.userId);
+            window.location.replace("./pageMain.html");
         }, error => {
             console.log(error);
         });
@@ -25,9 +28,23 @@ function createUser(email, password, name) {
         .then(response => {
             console.log(response);
             setCookie("userId", response.$id);
+            createDocument(response.$id);
+            //window.location.replace("./pageMain.html");
         }, error => {
             console.log(error);
         });
+}
+
+function createDocument(user) {
+
+    const promise = database.createDocument('63244466832556b90656', user, {data: "test"});
+
+    promise.then(function (response) {
+        console.log(response); // Success
+        //window.location.replace("./pageMain.html");
+    }, function (error) {
+        console.log(error); // Failure
+    });
 }
 
 function init() {
