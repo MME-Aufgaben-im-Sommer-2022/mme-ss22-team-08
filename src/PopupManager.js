@@ -39,7 +39,7 @@ class PopupManager{
         buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
         this.openPopUp();
 
-
+        
         document.querySelector(".inputAmount").value = widget.amount;
         document.querySelector(".inputTitle").value = widget.title;
         document.querySelector(".inputDate").value =widget.date;
@@ -76,7 +76,7 @@ class PopupManager{
                 return;
             }
     
-            this.manager.addNewWidget(amount,title,repeated,[category],date);
+            this.manager.addNewWidget(amount,title,repeated,category,date);
         
     }
 

@@ -33,8 +33,11 @@
         <h1><span class="firstPart">Smart</span><span class="scoundPart">Finance</span></h1>
         <div class="flex-container">
             <div class="flex-items">
-                <div class="container">
+                <div class="container balancePanel">
                     <h2>Aktueller Kontostand</h2>
+                    <h2 class="balance">0€</h2>
+                    <h3 class="balanceGain">Plus: 0€</h2>
+                    <h3 class="balanceLoss">Minus: 0€</h2>
                 </div>
                 <div class="container">
                     <h2>Sparziel</h2>
@@ -111,7 +114,8 @@
         </div>
     </div>
 
-   <script type="module" src="./src/indexMain.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@9.0.1/dist/iife/sdk.min.js"></script>
+    <script type="module" src="./src/indexMain.js"></script>
 </body>
 
 <template id="widget-template">

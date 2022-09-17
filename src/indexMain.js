@@ -1,17 +1,16 @@
-import Manager from "./Manager.js";
+import Manager from "./managers/Manager.js";
 
 let manager;
 
 function init() {
-    console.log("### Starting MME Project ###"); // eslint-disable-line no-console
     let button = document.querySelector("button");
+    console.log("### Starting MME Project ###"); // eslint-disable-line no-console
     manager = new Manager("main");
-    manager.reloadAllWidgets();
+    manager.balanceManager.element = document.querySelector(".balancePanel");
+    //manager.reloadAllWidgets();
     button.onclick = function() {
         manager.popupManager.openCreatePopUp();
     };
-    
 
 }
-
 init();
