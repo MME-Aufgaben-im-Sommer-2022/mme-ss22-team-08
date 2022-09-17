@@ -1,4 +1,4 @@
-import Manager from "./Manager.js";
+import Manager from "./managers/Manager.js";
 
 let manager;
 

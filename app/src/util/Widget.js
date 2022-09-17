@@ -26,7 +26,9 @@ class Widget extends Observable{
         this.date = date;
         this.element = element;
         this.manager = manager;
-        initEventListener(this, this.element);
+        if (this.element !== null) {
+            initEventListener(this, this.element);
+        }
     }
 
     //alle Wetterinformationen werden den zugehörigen HTML-Elementen zugeordnet
@@ -41,9 +43,8 @@ class Widget extends Observable{
         this.element.querySelector(".title").innerHTML = this.title;
         //this.element.querySelector(".icons").children[1].innerHTML =;
         if(showAllInformation) {
-            for(let i = 0; i < this.category.length; i++) {
-                this.element.querySelector(".category").children[i].innerHTML = this.category[i];
-            }
+            
+            this.element.querySelector(".category").innerHTML = this.category;
             this.element.querySelector(".date").innerHTML = this.date;
         }
         
@@ -68,6 +69,17 @@ class Widget extends Observable{
     updatePath(element) {
         this.element = element;
         initEventListener(this, this.element);
+    }
+
+    convertToObject() {
+        let obj = {
+            amount: this.amount,
+            title: this.title,
+            repeated: this.repeated,
+            category: this.category,
+            date: this.date,
+        };
+        return obj;
     }
 }
 
