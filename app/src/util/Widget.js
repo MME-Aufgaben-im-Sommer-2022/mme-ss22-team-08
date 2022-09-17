@@ -43,9 +43,8 @@ class Widget extends Observable{
         this.element.querySelector(".title").innerHTML = this.title;
         //this.element.querySelector(".icons").children[1].innerHTML =;
         if(showAllInformation) {
-            for(let i = 0; i < this.category.length; i++) {
-                this.element.querySelector(".category").children[i].innerHTML = this.category[i];
-            }
+            
+            this.element.querySelector(".category").innerHTML = this.category;
             this.element.querySelector(".date").innerHTML = this.date;
         }
         

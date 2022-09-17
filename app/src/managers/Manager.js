@@ -1,5 +1,7 @@
-import Widget from "./util/Widget.js";
-import PopupManager from "./PopupManager.js";
+import Widget from "../util/Widget.js";
+import PopupManager from "../PopupManager.js";
+import BalanceManager from "./BalanceManager.js";
+
 
 const WIDGET_TEMPLATE_STRING = document.querySelector("#widget-template").innerHTML.trim(),
 
@@ -59,6 +61,7 @@ class Manager{
         setupServerConnection();
         this.widgetList = [];
         this.popupManager = new PopupManager(this);
+        this.balanceManager = new BalanceManager(this, type);
         this.type= type;
         this.userId = getCookie("userId");
         this.widgetList = getDocument(this.userId, this);
@@ -79,15 +82,20 @@ class Manager{
             this.widgetList[i].manager = this;
             this.addWidget(this.widgetList[i]);
         }
+        this.balanceManager.updateStatistics(this.widgetList);
     }
 
     reloadAllWidgets() {
+        if(!this.widgetList) {
+            return;
+        }
         for (let i = 0; i < this.widgetList.length; i++) {
             this.widgetList[i].element.remove();
         }
         for (let i = 0; i < this.widgetList.length; i++) {
             this.addWidget(this.widgetList[i]);
         }
+        this.balanceManager.updateStatistics(this.widgetList);
         this.updateServerData();
     }
     
@@ -112,6 +120,7 @@ class Manager{
         widget.SetDisplay(this.type ==="detail");
         this.widgetList.push(widget);
         console.log(this.widgetList);
+        this.balanceManager.updateStatistics(this.widgetList);
         this.updateServerData();
     }
 

@@ -11,12 +11,16 @@ function setupServerConnection() {
         .setProject("62f0ca546a9a137d9df7");
 }
 
-function loginUserSession(email, password) {
+function loginUserSession(email, password, createNewDocument) {
     account.createEmailSession(email, password)
         .then(response => {
             console.log(response);
             setCookie("userId", response.userId);
-            window.location.replace("./pageMain.html");
+            if (createNewDocument) {
+                createDocument(response.userId);
+            } else {
+                window.location.replace("./pageMain.html");
+            }
         }, error => {
             console.log(error);
         });
@@ -28,7 +32,7 @@ function createUser(email, password, name) {
         .then(response => {
             console.log(response);
             setCookie("userId", response.$id);
-            createDocument(response.$id);
+            loginUserSession(email, password, true);
             //window.location.replace("./pageMain.html");
         }, error => {
             console.log(error);
@@ -37,11 +41,12 @@ function createUser(email, password, name) {
 
 function createDocument(user) {
 
-    const promise = database.createDocument('63244466832556b90656', user, {data: "test"});
+    // eslint-disable-next-line no-undef
+    const promise = database.createDocument('63244466832556b90656', user, {data: "{}"});
 
     promise.then(function (response) {
         console.log(response); // Success
-        //window.location.replace("./pageMain.html");
+        window.location.replace("./pageMain.html");
     }, function (error) {
         console.log(error); // Failure
     });
@@ -55,7 +60,7 @@ function init() {
         inputName = document.querySelector(".name"),
         inputPassword = document.querySelector(".password");
     signInButton.onclick = function() {
-        loginUserSession(inputEmail.value, inputPassword.value);
+        loginUserSession(inputEmail.value, inputPassword.value, false);
     };
 
     signUpButton.onclick = function() {
