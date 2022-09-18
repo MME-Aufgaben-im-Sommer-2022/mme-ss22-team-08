@@ -103,10 +103,12 @@ margin-left: 10%;
 
   .container h2 {
     padding: 5%;
+    font-family: 'Raleway', sans-serif;
   }
 
   .containerDouble h2 {
     padding: 5%;
+    font-family: 'Raleway', sans-serif;
   }
 
   .containerDouble button {
@@ -264,6 +266,7 @@ input:checked + .slider:before {
   font-size: 150%;
   margin-top: 5%;
   color: #008cff;
+  font-family: 'Raleway', sans-serif;
 }
 
 .scoundPart {
@@ -271,4 +274,5 @@ input:checked + .slider:before {
   font-size: 150%;
   margin-top: 5%;
   color: black;
+  font-family: 'Raleway', sans-serif;
 }

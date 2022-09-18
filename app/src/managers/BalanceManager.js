@@ -58,7 +58,12 @@ class BalanceManager {
 
     updateWeekChart() {
         let day = new Date(),
-         firstWeekDay = day.getDate() - day.getDay() + 1,
+         weekday = day.getDay() -1;
+
+        if (weekday < 0) {weekday = 6;}
+
+        // eslint-disable-next-line one-var
+        let firstWeekDay = day.getDate() - weekday,
          today = day.getDate(),
          month = day.getMonth() + 1,
          year = day.getFullYear(),
@@ -66,6 +71,7 @@ class BalanceManager {
          Einnahmen = [],
          Ausgaben = [];
 
+        console.log(firstWeekDay + " // " + today + " // " + day.getDay());
         for(let iDay = firstWeekDay; iDay <= today; iDay++) {
             let dayPlus = 0,
                 dayMinus = 0;
