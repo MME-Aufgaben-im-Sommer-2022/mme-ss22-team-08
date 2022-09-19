@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .login {
     text-align: center;
     background-color: #ffffff;
@@ -19,6 +21,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
   }
   
   .login input {
@@ -30,13 +33,33 @@
     text-align: center;
   }
 
-  
+  .proceed{
+    border-width: 0px;
+    border-radius: 10px;
+    background-color:#008cff;
+    font-size: 100%;
+    color: #ffffff;
+    width: 75%;
+    height: 2vw;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .toggleType{
+    border-width: 0px;
+    border-radius: 10px;
+    background-color:lightgray;
+    font-size: 100%;
+    width: 75%;
+    height: 2vw;
+    font-family: 'Raleway', sans-serif;
+  }
 
   .firstPart {
     align-self: center;
     font-size: 200%;
     margin-top: 5%;
     color: #008cff;
+    font-family: 'Raleway', sans-serif;
   }
 
   .scoundPart {
@@ -44,4 +67,13 @@
     font-size: 200%;
     margin-top: 5%;
     color: black;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h2 {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
   }

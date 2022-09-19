@@ -12,15 +12,12 @@ margin-left: 10%;
     align-items: normal;
     align-content: flex-start;
     margin-left: 5%;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .flex-items:nth-child(1) {
     display: block;
     width: 30%;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
     align-self: normal;
     order: 0;
   }
@@ -28,9 +25,6 @@ margin-left: 10%;
   .flex-items:nth-child(2) {
     display: block;
     width: 30%;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
     align-self: normal;
     order: 0;
   }
@@ -38,9 +32,6 @@ margin-left: 10%;
   .flex-items:nth-child(3) {
     display: block;
     width: 30%;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
     align-self: normal;
     order: 0;
   
@@ -85,28 +76,33 @@ margin-left: 10%;
   }
 
   .container {
-    display: box;
+    display: block;
     background-color:#ffffff;
     border-radius: 25px;
     width:100%;
-    height: 80%;
+    height: fit-content;
   }
 
   .containerDouble {
-    display: box;
+    display: block;
     background-color:#ffffff;
     border-radius: 25px;
     width:100%;
-    min-height: 15vw;
     text-align: center;
+  }
+
+  .footer {
+    flex: 0 1 40px;
   }
 
   .container h2 {
     padding: 5%;
+    font-family: 'Raleway', sans-serif;
   }
 
   .containerDouble h2 {
     padding: 5%;
+    font-family: 'Raleway', sans-serif;
   }
 
   .containerDouble button {
@@ -120,7 +116,13 @@ margin-left: 10%;
     background-color: #d1dbe4;
   }
 
+  .ui {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .widgetlist {
+    flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -264,6 +266,7 @@ input:checked + .slider:before {
   font-size: 150%;
   margin-top: 5%;
   color: #008cff;
+  font-family: 'Raleway', sans-serif;
 }
 
 .scoundPart {
@@ -271,4 +274,27 @@ input:checked + .slider:before {
   font-size: 150%;
   margin-top: 5%;
   color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
+.info {
+  font-family: 'Raleway', sans-serif;
+  align-self: center;
+  padding: 5px;
+}
+
+.balancePanel{
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+  font-size: 2.5vw;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#categoryChart {
+  height: 2vw;
+  width: 2vw;
 }
