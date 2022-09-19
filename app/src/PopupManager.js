@@ -28,9 +28,11 @@ class PopupManager{
 
     openCreatePopUp() {
         this.openPopUp();
+        document.querySelector("#sonstiges").checked = true;
         let title = this.popup.querySelector("h2");
         title.innerHTML = "Neuen Eintrag erstellen";
         buttonClosePopUp.innerHTML = "Eintrag erstellen";
+        document.querySelector('.inputDate').valueAsDate = new Date();
     }
 
     openEditPopUp(widget) {
@@ -39,7 +41,7 @@ class PopupManager{
         buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
         this.openPopUp();
 
-        
+        document.querySelector("#" + (widget.category).toLowerCase()).checked = true;
         document.querySelector(".inputAmount").value = widget.amount;
         document.querySelector(".inputTitle").value = widget.title;
         document.querySelector(".inputDate").value =widget.date;

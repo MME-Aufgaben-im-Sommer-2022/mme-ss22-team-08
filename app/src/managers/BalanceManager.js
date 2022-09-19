@@ -140,11 +140,11 @@ class BalanceManager {
 
     updateCategoryChart() {
         const categories = [
-            "Einnahmen",
             "Freizeit",
             "Haushalt",
             "Unterhaltung",
-            "Fortbewegungsmittel",
+            "Fortbewegung",
+            "Lebensmittel",
             "Versicherung",
             "Sonstiges",
         ];
