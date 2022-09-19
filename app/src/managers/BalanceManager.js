@@ -139,19 +139,48 @@ class BalanceManager {
     }
 
     updateCategoryChart() {
+        const categories = [
+            "Einnahmen",
+            "Freizeit",
+            "Haushalt",
+            "Unterhaltung",
+            "Fortbewegungsmittel",
+            "Versicherung",
+            "Sonstiges",
+        ];
+        
+        let date = new Date(),
+            categoryData = [],
+            currentMonth = date.getMonth()+1;
+
+        for (let i = 0; i < categories.length; i++) {
+            categoryData[i] = 0;
+            for (let j = 0; j < this.widgetList.length; j++) {
+                let month = this.widgetList[j].date.split("-")[1];
+                console.log(currentMonth + " // " + month);
+                if((currentMonth === month || "0" + currentMonth === month) && this.widgetList[j].category === categories[i]) {
+                    console.log(this.widgetList[j].amount);
+                    categoryData[i] += parseFloat(this.widgetList[j].amount);
+                }
+            }
+        }
+
+        console.log(categoryData);
+        
+        // eslint-disable-next-line one-var
         const data = {
-            labels: [
-              'Red',
-              'Blue',
-              'Yellow',
-            ],
+            labels: categories,
             datasets: [{
-              label: 'My First Dataset',
-              data: [300, 50, 100],
+              label: 'Ausgabenkategorien',
+              data: categoryData,
               backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
+                'rgb(179, 116, 134)',
+                'rgb(124, 152, 166)',
+                'rgb(214, 125, 83)',
+                'rgb(91, 152, 119)',
+                'rgb(83, 77, 107)',
+                'rgb(230, 189, 87)',
+                'rgb(158, 158, 158)',
               ],
               hoverOffset: 4,
             }],

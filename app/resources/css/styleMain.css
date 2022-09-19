@@ -12,7 +12,7 @@ margin-left: 10%;
     align-items: normal;
     align-content: flex-start;
     margin-left: 5%;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .flex-items:nth-child(1) {
@@ -114,6 +114,11 @@ margin-left: 10%;
     transition: margin-left .5s;
     padding: 1vw;
     background-color: #d1dbe4;
+  }
+
+  .ui {
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .widgetlist {
@@ -270,4 +275,26 @@ input:checked + .slider:before {
   margin-top: 5%;
   color: black;
   font-family: 'Raleway', sans-serif;
+}
+
+.info {
+  font-family: 'Raleway', sans-serif;
+  align-self: center;
+  padding: 5px;
+}
+
+.balancePanel{
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+  font-size: 2.5vw;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#categoryChart {
+  height: 2vw;
+  width: 2vw;
 }
