@@ -5,6 +5,8 @@ const client = new Appwrite.Client(),
     // eslint-disable-next-line no-undef
     database = new Appwrite.Databases(client,"6324444bf0c125e7623c");
 
+    let stateSignIn = false;
+
 function setupServerConnection() {
     client
         .setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
@@ -54,18 +56,54 @@ function createDocument(user) {
 
 function init() {
     setupServerConnection();
-    let signUpButton = document.querySelector(".signUp"),
-        signInButton = document.querySelector(".signIn"),
+    let proceedButton = document.querySelector(".proceed"),
+        toggleButton = document.querySelector(".toggleType"),
         inputEmail = document.querySelector(".email"),
         inputName = document.querySelector(".name"),
         inputPassword = document.querySelector(".password");
-    signInButton.onclick = function() {
-        loginUserSession(inputEmail.value, inputPassword.value, false);
+        makePageSignIn();
+    proceedButton.onclick = function() {
+        if (stateSignIn) {
+            loginUserSession(inputEmail.value, inputPassword.value, false);
+        } else {
+            createUser(inputEmail.value, inputPassword.value, inputName.value);
+        }
+        
     };
 
-    signUpButton.onclick = function() {
-        createUser(inputEmail.value, inputPassword.value, inputName.value);
+    toggleButton.onclick = function() {
+        if (stateSignIn) {
+            makePageSignUp();
+        } else {
+            makePageSignIn();
+        }
     };
+}
+
+function makePageSignIn() {
+    let usernameTag = document.querySelector(".nameTag"),
+        usernameInput = document.querySelector(".name");
+    usernameTag.remove();
+    usernameInput.remove();
+    document.querySelector(".proceed").innerHTML = "Anmelden";
+    document.querySelector(".toggleType").innerHTML = "Registrieren";
+    document.querySelector("h2").innerHTML="Wilkommen zurück";
+    stateSignIn = true;
+}
+
+function makePageSignUp() {
+    let container = document.querySelector(".Info"),
+        usernameTag = document.createElement("p"),
+        usernameInput = document.createElement("input");
+    document.querySelector("h2").innerHTML="Account erstellen";
+    usernameTag.setAttribute("class","nameTag");
+    usernameTag.innerHTML="Benutzername:";
+    usernameInput.setAttribute("class","name");
+    container.insertBefore(usernameInput, container.firstChild);
+    container.insertBefore(usernameTag, container.firstChild);
+    document.querySelector(".proceed").innerHTML = "Registrieren";
+    document.querySelector(".toggleType").innerHTML = "Anmelden";
+    stateSignIn = false;
 }
 
 function setCookie(name, value) {
