@@ -72,13 +72,14 @@ class PopupManager{
             title = document.querySelector(".inputTitle").value,
             date = document.querySelector(".inputDate").value,
             category = document.querySelector('input[name="category"]:checked').value,
+            person = document.querySelector(".inputPerson").value,
             repeated = document.querySelector(".inputRepeat").checked;
 
             if(amount === "") {
                 return;
             }
     
-            this.manager.addNewWidget(amount,title,repeated,category,date);
+            this.manager.addNewWidget(amount,title,repeated,category,date, person);
         
     }
 
@@ -86,6 +87,7 @@ class PopupManager{
         widget.amount = document.querySelector(".inputAmount").value;
         widget.title = document.querySelector(".inputTitle").value;
         widget.date = document.querySelector(".inputDate").value;
+        widget.person = document.querySelector(".inputPerson").value;
         widget.category = document.querySelector('input[name="category"]:checked').value;
         widget.repeated = document.querySelector(".inputRepeat").checked;
     }
@@ -94,6 +96,7 @@ class PopupManager{
         document.querySelector(".inputAmount").value ="";
         document.querySelector(".inputTitle").value = "";
         document.querySelector(".inputDate").value ="";
+        document.querySelector(".inputPerson").value ="";
         document.querySelector(".inputRepeat").checked= false;
     }
 

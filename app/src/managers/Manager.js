@@ -45,14 +45,73 @@ function parseJsonDoc(json, manager) {
 }
 
 function createWidgetsFromJson(json, manager) {
+    manager.updatedMonth = json[0].updateDate;
     let newWidgetList = [];
-    for(let i = 0; i < json.length; i++) {
+    for(let i = 1; i < json.length; i++) {
         let obj = json[i];
-        newWidgetList.push(new Widget(obj.amount, obj.title, obj.repeated, obj.category, obj.date, null, null));
+        newWidgetList.push(new Widget(obj.amount, obj.title, obj.repeated, obj.category, obj.date, null, null, obj.person));
     }
+
+    for (let i = 0; i < newWidgetList.length; i++) {
+        if (newWidgetList[i].repeated) {
+            if(!manager.updatedMonth) {
+                manager.updatedMonth= "12-3000";
+                console.log("Escape Error");
+            }
+            if(newWidgetList[i].date.split("-")[0] === manager.updatedMonth.split("-")[1] && newWidgetList[i].date.split("-")[1] === manager.updatedMonth.split("-")[0]) {
+                manager.repeatedList.push(newWidgetList[i]);
+            }
+        }
+    }
+
+    newWidgetList = checkForNewRepeated(newWidgetList, manager);
+
+    newWidgetList.sort((a,b) => (new Date(a.date) < new Date(b.date)) ? 1 : -1);
+    manager.repeatedList = [];
+
+
     console.log(newWidgetList);
     manager.widgetList = newWidgetList;
     manager.loadWidgetsFromSeverData();
+}
+
+function checkForNewRepeated(list, manager) {
+    console.log("Checking for Months");
+    console.log(manager.repeatedList);
+    let oldYear = manager.updatedMonth.split("-")[1],
+        newYear =manager.month.split("-")[1],
+        oldMonth = manager.updatedMonth.split("-")[0],
+        newMonth =manager.month.split("-")[0],
+        oldDate = new Date(oldYear + "-" + oldMonth + "-01"),
+        newDate = new Date(newYear + "-" + newMonth + "-01"),
+        months = 0;
+
+    months = (newDate.getFullYear() - oldDate.getFullYear()) * 12;
+    months -= oldDate.getMonth();
+    months += newDate.getMonth();
+    console.log(months <= 0 ? 0 : months);
+
+    // eslint-disable-next-line one-var
+    let month = oldDate.getMonth() +1,
+        year = oldDate.getFullYear();
+    for(let i = 0; i < months; i++ ) {
+        month++;
+        if(month > 12) {
+            month = 1;
+            year++;
+        }
+        for (let k = 0; k < manager.repeatedList.length; k++) {
+            let w = manager.repeatedList[k],
+                widget = new Widget(w.amount,w.title,w.repeated,w.category,w.date,null,manager, w.person),
+                day = widget.date.split("-")[2];
+            widget.date = year + "-" + month + "-" + day;
+            list.push(widget);
+        }
+    }
+    manager.updatedMonth = newMonth + "-" + newYear;
+    console.log(list);
+    return list;
+    //
 }
 
 class Manager{
@@ -60,11 +119,16 @@ class Manager{
     constructor(type) {
         setupServerConnection();
         this.widgetList = [];
+        this.repeatedList = [];
         this.popupManager = new PopupManager(this);
         this.balanceManager = new BalanceManager(this, type);
         this.type= type;
         this.userId = getCookie("userId");
         this.widgetList = getDocument(this.userId, this);
+        let today = new Date();
+        this.month = (today.getMonth()+1) + "-" + today.getFullYear();
+        this.updatedMonth = "8-2022";
+        console.log(this.month);
         console.log(this.widgetList);
     }
 
@@ -105,27 +169,29 @@ class Manager{
         widgetTemp.setAttribute("class","widget");
         widgetTemp.innerHTML = WIDGET_TEMPLATE_STRING;
         list.appendChild(widgetTemp);
-        console.log(widgetTemp);
         widget.updatePath(widgetTemp);
         widget.SetDisplay(this.type === "detail");
     }
     
-    addNewWidget(amount, title, repeated, category, date) {
+    addNewWidget(amount, title, repeated, category, date, person) {
         let list = document.querySelector(".widgetlist"),
          widgetTemp = document.createElement("li");
         widgetTemp.setAttribute("class","widget");
         widgetTemp.innerHTML = WIDGET_TEMPLATE_STRING;
         list.appendChild(widgetTemp);
-        let widget = new Widget(amount, title, repeated, category, date, widgetTemp, this); // eslint-disable-line
+        let widget = new Widget(amount, title, repeated, category, date, widgetTemp, this, person); // eslint-disable-line
         widget.SetDisplay(this.type ==="detail");
         this.widgetList.push(widget);
-        console.log(this.widgetList);
         this.balanceManager.updateStatistics(this.widgetList);
         this.updateServerData();
     }
 
     generateJsonDoc() {
-        let objectList = [];
+        let objectList = [],
+            meta = {
+                updateDate: this.updatedMonth,
+            };
+        objectList.push (meta);
         for(let i = 0; i < this.widgetList.length; i++) {
             objectList.push(this.widgetList[i].convertToObject());
         }

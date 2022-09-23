@@ -15,7 +15,7 @@ function initEventListener(widget, el) {
 
 
 class Widget extends Observable{
-    constructor(amount, title, repeated ,category, date, element, manager){
+    constructor(amount, title, repeated ,category, date, element, manager, person=""){
         super();
         this.deployed = false;
         this.signPositive = amount >= 0;
@@ -24,6 +24,7 @@ class Widget extends Observable{
         this.repeated = repeated;
         this.category = category;
         this.date = date;
+        this.person = person;
         this.element = element;
         this.manager = manager;
         if (this.element !== null) {
@@ -41,11 +42,13 @@ class Widget extends Observable{
         }
         this.element.querySelector(".amount").innerHTML = amountString;
         this.element.querySelector(".title").innerHTML = this.title;
-        //this.element.querySelector(".icons").children[1].innerHTML =;
+        this.element.querySelector("#repeatIcon").style.visibility = (this.repeated ? "visible" : "hidden");
         if(showAllInformation) {
             
             this.element.querySelector(".category").innerHTML = this.category;
             this.element.querySelector(".date").innerHTML = this.date;
+            this.element.querySelector("#personIcon").style.visibility = ((this.person !== "") ? "visible" : "hidden");
+            this.element.querySelector("#personIcon").setAttribute("title", this.person);
         }
         
     }
@@ -78,6 +81,7 @@ class Widget extends Observable{
             repeated: this.repeated,
             category: this.category,
             date: this.date,
+            person: this.person,
         };
         return obj;
     }

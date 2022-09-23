@@ -1,6 +1,7 @@
 .sidebar {
     height: 100%;
     width: 5%;
+    min-width: 60px;
     position: fixed;
     text-align: center;
     z-index: 1;
@@ -62,7 +63,10 @@
 }
 
 .amount {
-  padding-right: 5%;
+  width:10vw;
+  margin-left: 1vw;
+  margin-right: auto;
+  font-size: large;
 }
 
 .line {
@@ -70,14 +74,17 @@
 }
 
 .title {
-  padding-right: 10%;
+  align-self: left;
+  align-content: left;
+  text-align: left;
   width: 40%;
 }
 
 .category {
-  display: flex;
-  flex-direction: row;
-  padding-right: 5%;
+  margin-left: auto; 
+  margin-right: 2vw;
+  width: 10vw;
+  align-self:left;
 }
 
 .category button {
@@ -85,20 +92,37 @@
   padding: 5px;
   margin:5px;
 }
+
 .date {
-  padding-right: 5%;
+  margin-left: auto; 
+  margin-right: 2vw;
+  min-width: fit-content;
 }
 
 .delete {
   align-content: right;
   align-self: right;
-  padding-left: 2%;
+  margin-left: auto; 
+  margin-right: 1vw;
 }
 
 .edit {
   align-content: right;
   align-self: right;
-  padding-left: 2%;
+  margin-left: auto; 
+  margin-right: 1vw;
+}
+
+#repeatIcon {
+  margin-left: auto; 
+  margin-right: 2vw;
+  visibility: hidden;
+}
+
+#personIcon {
+  margin-left: auto; 
+  margin-right: 2vw;
+  visibility: hidden;
 }
 
 .frozen {

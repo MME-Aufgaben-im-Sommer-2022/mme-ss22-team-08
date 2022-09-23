@@ -40,6 +40,7 @@ margin-left: 10%;
   .sidebar {
     height: 100%;
     width: 5%;
+    min-width: 60px;
     position: fixed;
     text-align: center;
     z-index: 1;
@@ -125,19 +126,21 @@ margin-left: 10%;
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 85%;
     height: fit-content;
+    max-height: 65vh;
     margin: 2vh auto;
-    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 3%;
     list-style-type: none;
 }
 
 .widget {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
     padding: 1vw;
-    padding-right: 0vw;
     margin-bottom: 1vw;
     background-color:#f1f1f1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -297,4 +300,9 @@ input:checked + .slider:before {
 #categoryChart {
   height: 2vw;
   width: 2vw;
+}
+
+#repeatIcon {
+  margin-left: auto; 
+  margin-right: 5%;
 }
