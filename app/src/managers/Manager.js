@@ -47,6 +47,9 @@ function parseJsonDoc(json, manager) {
 function createWidgetsFromJson(json, manager) {
     if(json.length === undefined) {return;}
     manager.updatedMonth = json[0].updateDate;
+    if(json[0].startCredit !== undefined) {
+        manager.balanceManager.startCredit = parseInt(json[0].startCredit);
+    }
     let newWidgetList = [];
     for(let i = 1; i < json.length; i++) {
         let obj = json[i];
@@ -194,6 +197,7 @@ class Manager{
         let objectList = [],
             meta = {
                 updateDate: this.updatedMonth,
+                startCredit: this.balanceManager.startCredit,
             };
         objectList.push (meta);
         for(let i = 0; i < this.widgetList.length; i++) {

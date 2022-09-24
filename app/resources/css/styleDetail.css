@@ -141,7 +141,7 @@
 
 .popup {
   text-align: center;
-  background-color: #818181;
+  background-color: #d1dbe4;
   top: 0;
   left: 50%;
   width: 30%;
@@ -155,7 +155,7 @@
 
 .popup-open {
   text-align: center;
-  background-color: #818181;
+  background-color: #d1dbe4;
   top: 50%;
   left: 50%;
   width: 30%;

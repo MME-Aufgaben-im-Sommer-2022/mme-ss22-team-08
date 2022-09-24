@@ -4,7 +4,7 @@ class BalanceManager {
         this.balance = 0;
         this.balanceNegative = 0;
         this.balancePositive = 0;
-        this.startCredit = 100;
+        this.startCredit = 0;
         this.element = null;
         this.type = type;
         this.widgetList = [];
@@ -15,22 +15,23 @@ class BalanceManager {
     updateStatistics(widgetList) {
         this.widgetList = widgetList;
         let credit = this.startCredit,
-         creditLoss = 0, creditGain = 0;
+         creditLoss = 0, creditGain = 0, today = new Date();
         for(let i = 0; i< widgetList.length; i++) {
             credit += parseFloat(widgetList[i].amount);
-            
-            console.log(credit);
-            if (widgetList[i].signPositive) {
-                creditGain += parseFloat(widgetList[i].amount);
-            } else {
-                creditLoss += parseFloat(widgetList[i].amount);
+
+            console.log("0" + (today.getMonth()+1) + " // " + widgetList[i].date.split("-")[1]);
+            if(today.getMonth()+1 === widgetList[i].date.split("-")[1] || "0" + (today.getMonth()+1) === widgetList[i].date.split("-")[1]) {
+                if (widgetList[i].signPositive) {
+                    creditGain += parseFloat(widgetList[i].amount);
+                } else {
+                    creditLoss += parseFloat(widgetList[i].amount);
+                }
             }
+            
         }
         this.balance = credit;
         this.balancePositive = creditGain;
         this.balanceNegative = creditLoss;
-        console.log("Try to update");
-        console.log(this.balance);
         this.updatePanels();
     }
 
@@ -83,8 +84,6 @@ class BalanceManager {
 
          Einnahmen = [],
          Ausgaben = [];
-
-        console.log(firstWeekDay + " // " + today + " // " + day.getDay());
         for(let iDay = firstWeekDay; iDay <= today; iDay++) {
             let dayPlus = 0,
                 dayMinus = 0;
@@ -102,7 +101,6 @@ class BalanceManager {
             Ausgaben.push(dayMinus);
         }
         
-        console.log(firstWeekDay + "." + month + ".");
         const labels = [
             'Montag',
             'Dienstag',
@@ -157,15 +155,12 @@ class BalanceManager {
             categoryData[i] = 0;
             for (let j = 0; j < this.widgetList.length; j++) {
                 let month = this.widgetList[j].date.split("-")[1];
-                console.log(currentMonth + " // " + month);
                 if((currentMonth === month || "0" + currentMonth === month) && this.widgetList[j].category === categories[i]) {
                     console.log(this.widgetList[j].amount);
                     categoryData[i] += parseFloat(this.widgetList[j].amount);
                 }
             }
         }
-
-        console.log(categoryData);
         
         // eslint-disable-next-line one-var
         const data = {
