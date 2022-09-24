@@ -45,6 +45,7 @@ function parseJsonDoc(json, manager) {
 }
 
 function createWidgetsFromJson(json, manager) {
+    if(json.length === undefined) {return;}
     manager.updatedMonth = json[0].updateDate;
     let newWidgetList = [];
     for(let i = 1; i < json.length; i++) {
@@ -124,7 +125,8 @@ class Manager{
         this.balanceManager = new BalanceManager(this, type);
         this.type= type;
         this.userId = getCookie("userId");
-        this.widgetList = getDocument(this.userId, this);
+        this.widgetList = [];
+        getDocument(this.userId, this);
         let today = new Date();
         this.month = (today.getMonth()+1) + "-" + today.getFullYear();
         this.updatedMonth = "8-2022";
@@ -181,6 +183,8 @@ class Manager{
         list.appendChild(widgetTemp);
         let widget = new Widget(amount, title, repeated, category, date, widgetTemp, this, person); // eslint-disable-line
         widget.SetDisplay(this.type ==="detail");
+        console.log(widget);
+        console.log(this.widgetList);
         this.widgetList.push(widget);
         this.balanceManager.updateStatistics(this.widgetList);
         this.updateServerData();
