@@ -10,6 +10,7 @@ class BalanceManager {
         this.widgetList = [];
         this.weekChart = null;
         this.categoryChart = null;
+        this.savingChart = null;
     }
 
     updateStatistics(widgetList) {
@@ -65,6 +66,18 @@ class BalanceManager {
                 this.categoryChart = new Chart(
                     chartCategoryElement,
                     this.updateCategoryChart(),
+                  );
+                
+                if(this.savingChart !== null) {
+                    this.savingChart.destroy();
+                }
+
+                // eslint-disable-next-line one-var
+                let chartSavingElement = this.element.querySelector("#savingChart");
+                // eslint-disable-next-line no-undef
+                this.savingChart = new Chart(
+                    chartSavingElement,
+                    this.updateSavingsChart(),
                   );
             }
         }
@@ -187,6 +200,30 @@ class BalanceManager {
           };
 
           return config;
+    }
+
+    updateSavingsChart() {
+        const data = {
+            datasets: [{
+                label: 'My First Dataset',
+                data: [50, 10],
+                backgroundColor: [
+                'rgb(0, 140, 255)',
+                'rgb(0,0,0,0)',
+                ],
+                hoverOffset: 4,
+            }],
+            },
+
+
+            config = {
+                type: 'doughnut',
+                data: data,
+                options: {cutout: "90%",
+                        scale: "50%"},
+                };
+
+        return config;
     }
 }
 

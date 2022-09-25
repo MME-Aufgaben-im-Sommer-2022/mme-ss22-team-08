@@ -82,6 +82,53 @@ margin-left: 10%;
     border-radius: 25px;
     width:100%;
     height: fit-content;
+    align-content: center;
+  }
+
+  
+  .balancePanel{
+    text-align: center;
+    height: 30vh;
+  }
+
+  .savingPanel {
+    height: 45vh;
+  }
+
+  .categoryPanel {
+    height: 55vh;
+  }
+
+  .weekPanel {
+    height: 32vh;
+  }
+
+  .constraint {
+    max-width: 32vh;
+    width: auto;
+    max-height: 32vh;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .constraintCategory {
+    max-width: 45vh;
+    width: auto;
+    max-height: 45vh;
+    height: auto;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .constraintWeek {
+    max-width: 25vw;
+    width: auto;
+    max-height: 20vh;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .containerDouble {
@@ -90,6 +137,7 @@ margin-left: 10%;
     border-radius: 25px;
     width:100%;
     text-align: center;
+    height: 90vh;
   }
 
   .footer {
@@ -98,6 +146,18 @@ margin-left: 10%;
 
   .container h2 {
     padding: 5%;
+    padding-bottom: 0;
+    margin-bottom: 1%;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .container h3 {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .container h4 {
+    padding: 1%;
+    margin: 0;
     font-family: 'Raleway', sans-serif;
   }
 
@@ -284,10 +344,6 @@ input:checked + .slider:before {
   font-family: 'Raleway', sans-serif;
   align-self: center;
   padding: 5px;
-}
-
-.balancePanel{
-  text-align: center;
 }
 
 .logo {

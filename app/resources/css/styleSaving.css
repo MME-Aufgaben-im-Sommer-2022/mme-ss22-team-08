@@ -47,11 +47,11 @@
   text-align: left;
   background-color: #d1dbe4;
   top: 50%;
-  left: 50%;
-  width: 60%;
-  height: 80%;
+  left: 5%;
+  width: 80%;
+  height: 60%;
   position: absolute;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-5%, -50%) scale(1);
   visibility: visible;
   border-radius: 25px;
 }
@@ -93,7 +93,7 @@ button.Danger{
   text-align: left;
   width: 90%;
   padding: 1%;
-  margin-top: 1vh;
+  margin-top: 3vh;
   display: flex;
   flex-direction: row;
   margin-left: 5%;
