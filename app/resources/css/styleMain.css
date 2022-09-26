@@ -146,11 +146,19 @@ margin-left: 10%;
     background-color:#008cff;
     font-size: 100%;
     color: #ffffff;
-    width: 50%;
     height: 2.5vw;
     font-family: 'Raleway', sans-serif;
     margin-bottom: 0;
     margin-top: auto;
+  }
+
+  .new {
+    width: 10%;
+  }
+
+  .moreDetails {
+    width: 50%;
+    margin-right: 2vw;
   }
 
   .container h2 {
@@ -239,7 +247,7 @@ margin-left: 10%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
   visibility: hidden;
 }
 
@@ -253,7 +261,7 @@ margin-left: 10%;
   top: 0;
   left: 50%;
   width: 30%;
-  height: 80%;
+  height: 90%;
   position: absolute;
   transform: translate(-50%, -50%) scale(0.01);
   visibility: hidden;
@@ -267,24 +275,46 @@ margin-left: 10%;
   top: 50%;
   left: 50%;
   width: 30%;
-  height: 80%;
+  height: 90%;
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
 }
 
 .inputSpan {
-  text-align: center;
-  width: 80%;
+  width: 90%;
   padding: 1%;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+}
+
+.inputSpan p{
+  width: 6vw;
+  margin: auto 1vw auto 1vw;
+  font-size: 120%;
 }
 
 .inputSpan input {
   padding: 1%;
   padding-left: 10%;
+  border-radius: 25px;
+  height:4vh;
+  border-width: 0;
+  margin: auto auto auto 1vw;
+}
+
+
+
+.inputAmount {
+  width: 30%;
+}
+
+.inputTitle {
+  width: 50%;
 }
 
 .switch {
@@ -292,6 +322,7 @@ margin-left: 10%;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: auto 2vw auto auto
 }
 
 .switch input {
@@ -325,11 +356,11 @@ margin-left: 10%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #008cff;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #008cff;
 }
 
 input:checked + .slider:before {
@@ -412,4 +443,82 @@ input:checked + .slider:before {
   margin-top: auto;
   margin-bottom: auto;
 
+}
+
+/* Radio-Button Design by https://codepen.io/Metty/pen/MWjOavR*/
+
+.categoryHeader {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.wrapper{
+  display:flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1px 0;
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+.wrapper .option{
+  background: #fff;
+  height: 4vh;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0.5vh auto 0.5vh 0.5vh;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+#einnahmen:checked:checked ~ .option-1,
+#sparen:checked:checked ~ .option-2,
+#freizeit:checked:checked ~ .option-3,
+#haushalt:checked:checked ~ .option-4,
+#unterhaltung:checked:checked ~ .option-5,
+#lebensmittel:checked:checked ~ .option-6,
+#fortbewegung:checked:checked ~ .option-7,
+#versicherung:checked:checked ~ .option-8,
+#sonstiges:checked:checked ~ .option-9{
+  border-color: #008cff;
+  background: #008cff;
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#einnahmen:checked:checked ~ .option-1 span,
+#sparen:checked:checked ~ .option-2 span,
+#freizeit:checked:checked ~ .option-3 span,
+#haushalt:checked:checked ~ .option-4 span,
+#unterhaltung:checked:checked ~ .option-5 span,
+#lebensmittel:checked:checked ~ .option-6 span,
+#fortbewegung:checked:checked ~ .option-7 span,
+#versicherung:checked:checked ~ .option-8 span,
+#sonstiges:checked:checked ~ .option-9 span{
+  color: #fff;
+}
+
+/* end */
+
+.popupButtons button {
+  border-width: 0px;
+  border-radius: 20px;
+  background-color:#008cff;
+  font-size: 100%;
+  color: #ffffff;
+  height: 2.5vw;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0;
+  margin-top: 5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }

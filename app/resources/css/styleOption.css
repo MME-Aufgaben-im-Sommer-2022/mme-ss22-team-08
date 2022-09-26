@@ -49,11 +49,17 @@
   top: 50%;
   left: 50%;
   width: 60%;
-  height: 80%;
+  height: fit-content;
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
   border-radius: 25px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 110%;
+}
+
+.menu p {
+  width:15vw;
 }
 
 hr.solid {
@@ -72,8 +78,7 @@ button{
   width: fit-content;
   height: 2.5vw;
   font-family: 'Raleway', sans-serif;
-  margin-right: 0;
-  margin-left: auto;
+  margin: auto 0 auto auto;
 }
 
 button.Danger{
@@ -85,27 +90,30 @@ button.Danger{
   width: fit-content;
   height: 2.5vw;
   font-family: 'Raleway', sans-serif;
-  margin-right: 0;
-  margin-left: auto;
+  margin: auto 0 auto auto;
 }
 
 .inputSpan {
   text-align: left;
   width: 90%;
   padding: 1%;
-  margin-top: 1vh;
+  margin-top: 0.5vh;
   display: flex;
   flex-direction: row;
   margin-left: 5%;
 }
 
-h2{
-  margin-left: 5%;
-}
-
-.inputSpan input {
+.inputSpan input{
   padding: 1%;
   padding-left: 10%;
+  border-radius: 25px;
+  height:4vh;
+  border-width: 0;
+  margin: auto auto auto 1vw;
+}
+
+h3{
+  margin-left: 5%;
 }
 
 h1 {

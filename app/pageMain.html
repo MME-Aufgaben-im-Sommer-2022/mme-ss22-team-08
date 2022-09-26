@@ -55,7 +55,10 @@
                     <ul class="widgetlist">
 
                     </ul>
-                    <button>Neuer Eintrag</button>
+                    <span class="row">
+                        <button class="moreDetails">Verwalten</button> 
+                        <button class="new">+</button>
+                    </span>
                 </div>
             </div>
             <div class="flex-items">
@@ -92,24 +95,26 @@
                     <input class="inputDate" type="date">
                 </span>
                 <span class="inputSpan">
-                    <p>Kategorie:</p>
-                    <div>
-                        <input type="radio" id="einnahmen" name="category" value="Einnahmen">
-                        <label for="Einnahmen">Einnahmen</label><br>
-                        <input type="radio" id="freizeit" name="category" value="Freizeit">
-                        <label for="Freizeit">Freizeit</label><br>
-                        <input type="radio" id="haushalt" name="category" value="Haushalt">
-                        <label for="Haushalt">Haushalt</label><br>
-                        <input type="radio" id="unterhaltung" name="category" value="Unterhaltung">
-                        <label for="Unterhaltung">Unterhaltung</label><br>
-                        <input type="radio" id="lebensmittel" name="category" value="Lebensmittel">
-                        <label for="Lebensmittel">Lebensmittel</label> <br>
-                        <input type="radio" id="fortbewegung" name="category" value="Fortbewegung">
-                        <label for="Fortbewegung">Fortbewegung</label><br>
-                        <input type="radio" id="versicherung" name="category" value="Versicherung">
-                        <label for="Versicherung">Versicherung</label><br>
-                        <input type="radio" id="sonstiges" name="category" value="Sonstiges">
-                        <label for="Sonstiges">Sonstiges</label>
+                    <p class="categoryHeader">Kategorie:</p>
+                    <div class="wrapper">
+                        <input type="radio" name="category" id="einnahmen">
+                        <input type="radio" name="category" id="sparen">
+                        <input type="radio" name="category" id="freizeit">
+                        <input type="radio" name="category" id="haushalt">
+                        <input type="radio" name="category" id="unterhaltung">
+                        <input type="radio" name="category" id="lebensmittel">
+                        <input type="radio" name="category" id="fortbewegung">
+                        <input type="radio" name="category" id="versicherung">
+                        <input type="radio" name="category" id="sonstiges" checked>
+                            <label for="einnahmen" class="option option-1"><span>Einnahmen</span></label>
+                            <label for="sparen" class="option option-2"><span>Sparen</span></label>
+                            <label for="freizeit" class="option option-3"><span>Freizeit</span></label>
+                            <label for="haushalt" class="option option-4"><span>Haushalt</span></label>
+                            <label for="unterhaltung" class="option option-5"><span>Unterhaltung</span></label>
+                            <label for="lebensmittel" class="option option-6"><span>Lebensmittel</span></label>
+                            <label for="fortbewegung" class="option option-7"><span>Fortbewegung</span></label>
+                            <label for="versicherung" class="option option-8"><span>Versicherung</span></label>
+                            <label for="sonstiges" class="option option-9"><span>Sonstiges</span></label>
                     </div>
                 </span>
                 <span class="inputSpan">
@@ -124,7 +129,7 @@
                       </label>
                 </span>
             </div>
-            <span class="inputSpan">
+            <span class="inputSpan popupButtons row">
                 <button class="exitPopup">Abbrechen</button>
                 <button class="closePopup">Eintrag Erstellen</button>
             </span>
