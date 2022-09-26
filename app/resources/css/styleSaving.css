@@ -1,0 +1,113 @@
+.sidebar {
+    height: 100%;
+    width: 5%;
+    min-width: 60px;
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #008cff;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 10%;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar img {
+    padding:5px;
+    filter: invert(1);
+  }
+
+  .sidebar img:hover {
+    background-color: #006dc6;
+    border-radius: 10px;
+    filter: invert(0);
+  }
+
+  .sidebarSelected {
+    background-color: #ff9239;
+    border-radius: 10px;
+  }
+
+  .optionPage {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+  }
+
+
+.menu {
+  text-align: left;
+  background-color: #d1dbe4;
+  top: 50%;
+  left: 5%;
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  transform: translate(-5%, -50%) scale(1);
+  visibility: visible;
+  border-radius: 25px;
+}
+
+hr.solid {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+  width:90%;
+  border-color: #818181;
+}
+
+button{
+  border-width: 0px;
+  border-radius: 10px;
+  background-color:#008cff;
+  font-size: 100%;
+  color: #ffffff;
+  width: fit-content;
+  height: 2.5vw;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+button.Danger{
+  border-width: 0px;
+  border-radius: 10px;
+  background-color:red;
+  font-size: 100%;
+  color: #ffffff;
+  width: fit-content;
+  height: 2.5vw;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.inputSpan {
+  text-align: left;
+  width: 90%;
+  padding: 1%;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+}
+
+h2{
+  margin-left: 5%;
+}
+
+.inputSpan input {
+  padding: 1%;
+  padding-left: 10%;
+}
+
+h1 {
+  font-size: 200%;
+}

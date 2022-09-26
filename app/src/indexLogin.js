@@ -24,7 +24,18 @@ function loginUserSession(email, password, createNewDocument) {
                 window.location.replace("./pageMain.html");
             }
         }, error => {
-            console.log(error);
+            let message = document.querySelector(".errorMessage");
+            switch(error.code) {
+                case 401:
+                    message.innerHTML = "Falsche Email-Adresse und/oder Passwort";
+                    break;
+                case 400:
+                    message.innerHTML = "Inkorrekte Email-Adresse oder Passwort";
+                    break;
+                default:
+                    message.innerHTML = "Ein Fehler ist aufgetreten - Error: " + error.code;
+                    break;
+            }
         });
 }
 
@@ -37,7 +48,18 @@ function createUser(email, password, name) {
             loginUserSession(email, password, true);
             //window.location.replace("./pageMain.html");
         }, error => {
-            console.log(error);
+            let message = document.querySelector(".errorMessage");
+            switch(error.code) {
+                case 409:
+                    message.innerHTML = "Account existiert bereits";
+                    break;
+                case 400:
+                    message.innerHTML = "Inkorrekte Email-Adresse oder Passwort";
+                    break;
+                default:
+                    message.innerHTML = "Ein Fehler ist aufgetreten - Error: " + error.code;
+                    break;
+            }
         });
 }
 

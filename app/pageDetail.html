@@ -15,21 +15,31 @@
                 <img src="./resources/home.png" width="40vw" height="40vw" alt="Home">
             </a>
             <a href="./pageDetail.html">
-                <img src="./resources/write.png" width="40vw" height="40vw" alt="Home" class="sidebarSelected">
+                <img src="./resources/write.png" width="40vw" height="40vw" alt="Detail" class="sidebarSelected">
             </a>
-            <a href="./index.html">
-                <img src="./resources/wallet.png" width="40vw" height="40vw" alt="Home">
+            <a href="./pageSaving.html">
+                <img src="./resources/wallet.png" width="40vw" height="40vw" alt="Saving Goal">
             </a>
-            <a href="./pageLogin.html">
-                <img src="./resources/options.png" width="40vw" height="40vw" alt="Home">
+            <a href="./pageOption.html">
+                <img src="./resources/options.png" width="40vw" height="40vw" alt="Options">
             </a>
         </div>
         <div class="detail-page">
             <h1>Überblick</h1>
-            <button>new</button>
+        <div class="headers">
+            <span class="amount">Betrag</span>
+            <span class="title">Titel</span>
+            <span class="iconHeader"></span>
+            <span class="categoryHeader">Kategorie</span>
+            <span class="date">Datum</span>
+            <span class="delete"></span>
+            <span class="edit"></span>
+        </div>
         <div>
             <ul class="widgetlist">
             </ul>
+            
+            <button class="new">Neuer Eintrag</button>
         </div>
         </div>
     </div>
@@ -51,23 +61,32 @@
                     <input class="inputDate" type="date">
                 </span>
                 <span class="inputSpan">
-                    <p>Kategorie:</p> 
-                    <div>
-                        <input type="radio" id="einnahmen" name="category" value="Einnahmen">
-                        <label for="Einnahmen">Einnahmen</label><br>
-                        <input type="radio" id="unterhaltung" name="category" value="Unterhaltung">
-                        <label for="Unterhaltung">Unterhaltung</label><br>
-                        <input type="radio" id="haushalt" name="category" value="Haushalt">
-                        <label for="Haushalt">Haushalt</label><br>
-                        <input type="radio" id="lebensmittel" name="category" value="Lebensmittel">
-                        <label for="Lebensmittel">Lebensmittel</label> <br>
-                        <input type="radio" id="versicherung" name="category" value="Versicherung">
-                        <label for="Versicherung">Versicherung</label>
+                    <p class="categoryHeader">Kategorie:</p>
+                    <div class="wrapper">
+                        <input type="radio" name="category" id="einnahmen">
+                        <input type="radio" name="category" id="sparen">
+                        <input type="radio" name="category" id="freizeit">
+                        <input type="radio" name="category" id="haushalt">
+                        <input type="radio" name="category" id="unterhaltung">
+                        <input type="radio" name="category" id="lebensmittel">
+                        <input type="radio" name="category" id="fortbewegung">
+                        <input type="radio" name="category" id="versicherung">
+                        <input type="radio" name="category" id="sonstiges" checked>
+                            <label for="einnahmen" class="option option-1"><span>Einnahmen</span></label>
+                            <label for="sparen" class="option option-2"><span>Sparen</span></label>
+                            <label for="freizeit" class="option option-3"><span>Freizeit</span></label>
+                            <label for="haushalt" class="option option-4"><span>Haushalt</span></label>
+                            <label for="unterhaltung" class="option option-5"><span>Unterhaltung</span></label>
+                            <label for="lebensmittel" class="option option-6"><span>Lebensmittel</span></label>
+                            <label for="fortbewegung" class="option option-7"><span>Fortbewegung</span></label>
+                            <label for="versicherung" class="option option-8"><span>Versicherung</span></label>
+                            <label for="sonstiges" class="option option-9"><span>Sonstiges</span></label>
                     </div>
                 </span>
                     
                 <span class="inputSpan">
                     <p>Person hinzufügen:</p>
+                    <input class="inputPerson">
                 </span>
                 <span class="inputSpan">
                     <p>Wiederholen:</p>
@@ -77,7 +96,7 @@
                       </label>
                 </span>
             </div>
-            <span class="inputSpan">
+            <span class="inputSpan popupButtons row">
                 <button class="exitPopup">Abbrechen</button>
                 <button class="closePopup">Eintrag Erstellen</button>
             </span>
@@ -96,8 +115,12 @@
     <span class="line">|</span>
     <span class="title">?</span>
     <span class="icons"></span>
-    <span class="category">
-        <button>none</button>
+        <img src="./resources/repeat.png" id="repeatIcon" width="30vw" height="30vw" alt="Repeat">
+        <!--<a href="https://www.flaticon.com/free-icons/refresh" title="refresh icons">Refresh icons created by Freepik - Flaticon</a>-->
+        <img src="./resources/person.png" id="personIcon" width="30vw" height="30vw" alt="Person">
+        <!--<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a>-->
+    <span class="categorySpan">
+        <button class="category">none</button>
     </span>
     <span class="date">no date</span>
     <span class="delete">

@@ -28,9 +28,11 @@ class PopupManager{
 
     openCreatePopUp() {
         this.openPopUp();
+        document.querySelector("#sonstiges").checked = true;
         let title = this.popup.querySelector("h2");
         title.innerHTML = "Neuen Eintrag erstellen";
         buttonClosePopUp.innerHTML = "Eintrag erstellen";
+        document.querySelector('.inputDate').valueAsDate = new Date();
     }
 
     openEditPopUp(widget) {
@@ -39,7 +41,7 @@ class PopupManager{
         buttonClosePopUp.innerHTML = "Eintrag bearbeiten";
         this.openPopUp();
 
-        
+        document.querySelector("#" + (widget.category).toLowerCase()).checked = true;
         document.querySelector(".inputAmount").value = widget.amount;
         document.querySelector(".inputTitle").value = widget.title;
         document.querySelector(".inputDate").value =widget.date;
@@ -69,14 +71,16 @@ class PopupManager{
             let amount = document.querySelector(".inputAmount").value,
             title = document.querySelector(".inputTitle").value,
             date = document.querySelector(".inputDate").value,
-            category = document.querySelector('input[name="category"]:checked').value,
+            categoryId = document.querySelector('input[name="category"]:checked').id,
+            category = document.querySelector('label[for=' + categoryId + ']').innerHTML,
+            person = document.querySelector(".inputPerson").value,
             repeated = document.querySelector(".inputRepeat").checked;
 
             if(amount === "") {
                 return;
             }
     
-            this.manager.addNewWidget(amount,title,repeated,category,date);
+            this.manager.addNewWidget(amount,title,repeated,category,date, person);
         
     }
 
@@ -84,6 +88,7 @@ class PopupManager{
         widget.amount = document.querySelector(".inputAmount").value;
         widget.title = document.querySelector(".inputTitle").value;
         widget.date = document.querySelector(".inputDate").value;
+        widget.person = document.querySelector(".inputPerson").value;
         widget.category = document.querySelector('input[name="category"]:checked').value;
         widget.repeated = document.querySelector(".inputRepeat").checked;
     }
@@ -92,6 +97,7 @@ class PopupManager{
         document.querySelector(".inputAmount").value ="";
         document.querySelector(".inputTitle").value = "";
         document.querySelector(".inputDate").value ="";
+        document.querySelector(".inputPerson").value ="";
         document.querySelector(".inputRepeat").checked= false;
     }
 

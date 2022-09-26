@@ -77,3 +77,8 @@
   p {
     font-family: 'Raleway', sans-serif;
   }
+
+  .errorMessage {
+    color: red;
+    font-family: 'Raleway', sans-serif;
+  }

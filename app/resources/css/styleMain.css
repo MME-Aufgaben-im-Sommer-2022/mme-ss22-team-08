@@ -40,6 +40,7 @@ margin-left: 10%;
   .sidebar {
     height: 100%;
     width: 5%;
+    min-width: 60px;
     position: fixed;
     text-align: center;
     z-index: 1;
@@ -81,6 +82,53 @@ margin-left: 10%;
     border-radius: 25px;
     width:100%;
     height: fit-content;
+    align-content: center;
+  }
+
+  
+  .balancePanel{
+    text-align: center;
+    height: 30vh;
+  }
+
+  .savingPanel {
+    height: 45vh;
+  }
+
+  .categoryPanel {
+    height: 55vh;
+  }
+
+  .weekPanel {
+    height: 32vh;
+  }
+
+  .constraint {
+    max-width: 32vh;
+    width: auto;
+    max-height: 32vh;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .constraintCategory {
+    max-width: 45vh;
+    width: auto;
+    max-height: 45vh;
+    height: auto;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .constraintWeek {
+    max-width: 25vw;
+    width: auto;
+    max-height: 20vh;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .containerDouble {
@@ -89,26 +137,53 @@ margin-left: 10%;
     border-radius: 25px;
     width:100%;
     text-align: center;
+    height: 90vh;
   }
 
-  .footer {
-    flex: 0 1 40px;
+  .containerDouble button {
+    border-width: 0px;
+    border-radius: 10px;
+    background-color:#008cff;
+    font-size: 100%;
+    color: #ffffff;
+    height: 2.5vw;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 0;
+    margin-top: auto;
+  }
+
+  .new {
+    width: 10%;
+  }
+
+  .moreDetails {
+    width: 50%;
+    margin-right: 2vw;
   }
 
   .container h2 {
     padding: 5%;
+    padding-bottom: 0;
+    margin-bottom: 1%;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .container h3 {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .container h4 {
+    padding: 1%;
+    margin: 0;
     font-family: 'Raleway', sans-serif;
   }
 
   .containerDouble h2 {
     padding: 5%;
+    margin-bottom: 0;
     font-family: 'Raleway', sans-serif;
   }
 
-  .containerDouble button {
-    align-self: flex-end;
-    margin: 5%;
-  }
   
   body {
     transition: margin-left .5s;
@@ -125,27 +200,45 @@ margin-left: 10%;
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: fit-content;
+    width: 85%;
+    height: 65vh;
+    max-height: 65vh;
     margin: 2vh auto;
-    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 3%;
     list-style-type: none;
 }
 
 .widget {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
     padding: 1vw;
-    padding-right: 0vw;
     margin-bottom: 1vw;
-    background-color:#f1f1f1;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
+    background-color: #d1dbe4;
+    box-shadow: 0 4px 8px 0 rgba(57, 78, 96, 0.3);
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .amount {
-  padding-right: 5%;
+  margin-left: 0;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 120%;
+}
+
+.title {
+  width: 12vw;
+  text-align: left;
+  align-self: left;
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 120%;
 }
 
 .frozen {
@@ -154,7 +247,7 @@ margin-left: 10%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
   visibility: hidden;
 }
 
@@ -164,11 +257,11 @@ margin-left: 10%;
 
 .popup {
   text-align: center;
-  background-color: #818181;
+  background-color: #d1dbe4;
   top: 0;
   left: 50%;
   width: 30%;
-  height: 80%;
+  height: 90%;
   position: absolute;
   transform: translate(-50%, -50%) scale(0.01);
   visibility: hidden;
@@ -178,28 +271,50 @@ margin-left: 10%;
 
 .popup-open {
   text-align: center;
-  background-color: #818181;
+  background-color: #d1dbe4;
   top: 50%;
   left: 50%;
   width: 30%;
-  height: 80%;
+  height: 90%;
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
 }
 
 .inputSpan {
-  text-align: center;
-  width: 80%;
+  width: 90%;
   padding: 1%;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+}
+
+.inputSpan p{
+  width: 6vw;
+  margin: auto 1vw auto 1vw;
+  font-size: 120%;
 }
 
 .inputSpan input {
   padding: 1%;
   padding-left: 10%;
+  border-radius: 25px;
+  height:4vh;
+  border-width: 0;
+  margin: auto auto auto 1vw;
+}
+
+
+
+.inputAmount {
+  width: 30%;
+}
+
+.inputTitle {
+  width: 50%;
 }
 
 .switch {
@@ -207,6 +322,7 @@ margin-left: 10%;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: auto 2vw auto auto
 }
 
 .switch input {
@@ -240,11 +356,11 @@ margin-left: 10%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #008cff;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #008cff;
 }
 
 input:checked + .slider:before {
@@ -283,8 +399,29 @@ input:checked + .slider:before {
   padding: 5px;
 }
 
-.balancePanel{
-  text-align: center;
+
+.balance{
+  margin-top: 0;
+}
+
+.balanceGain {
+  color: #4bc0c0;
+}
+
+.balanceLoss {
+  color: #ff6384;
+}
+
+.row h3 {
+  margin-top: 0;
+  padding: 2%;
+}
+
+.row {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
 }
 
 .logo {
@@ -297,4 +434,91 @@ input:checked + .slider:before {
 #categoryChart {
   height: 2vw;
   width: 2vw;
+}
+
+#repeatIcon {
+  margin-left: 0; 
+  margin-right: 1vw;
+  visibility: hidden;
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+
+/* Radio-Button Design by https://codepen.io/Metty/pen/MWjOavR*/
+
+.categoryHeader {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.wrapper{
+  display:flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1px 0;
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+.wrapper .option{
+  background: #fff;
+  height: 4vh;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0.5vh auto 0.5vh 0.5vh;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+#einnahmen:checked:checked ~ .option-1,
+#sparen:checked:checked ~ .option-2,
+#freizeit:checked:checked ~ .option-3,
+#haushalt:checked:checked ~ .option-4,
+#unterhaltung:checked:checked ~ .option-5,
+#lebensmittel:checked:checked ~ .option-6,
+#fortbewegung:checked:checked ~ .option-7,
+#versicherung:checked:checked ~ .option-8,
+#sonstiges:checked:checked ~ .option-9{
+  border-color: #008cff;
+  background: #008cff;
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#einnahmen:checked:checked ~ .option-1 span,
+#sparen:checked:checked ~ .option-2 span,
+#freizeit:checked:checked ~ .option-3 span,
+#haushalt:checked:checked ~ .option-4 span,
+#unterhaltung:checked:checked ~ .option-5 span,
+#lebensmittel:checked:checked ~ .option-6 span,
+#fortbewegung:checked:checked ~ .option-7 span,
+#versicherung:checked:checked ~ .option-8 span,
+#sonstiges:checked:checked ~ .option-9 span{
+  color: #fff;
+}
+
+/* end */
+
+.popupButtons button {
+  border-width: 0px;
+  border-radius: 20px;
+  background-color:#008cff;
+  font-size: 100%;
+  color: #ffffff;
+  height: 2.5vw;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0;
+  margin-top: 5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
