@@ -46,7 +46,8 @@ class Widget extends Observable{
         if(showAllInformation) {
             
             this.element.querySelector(".category").innerHTML = this.category;
-            this.element.querySelector(".date").innerHTML = this.date;
+            let dateList = this.date.split("-");
+            this.element.querySelector(".date").innerHTML = dateList[2] + "." + dateList[1] + "." + dateList[0];
             this.element.querySelector("#personIcon").style.visibility = ((this.person !== "") ? "visible" : "hidden");
             this.element.querySelector("#personIcon").setAttribute("title", this.person);
         }

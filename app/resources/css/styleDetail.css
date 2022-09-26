@@ -52,21 +52,28 @@
 }
 
 .widget {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 1vw;
-    margin-bottom: 1vw;
-    background-color:#f1f1f1;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 1vw;
+  margin-bottom: 1vw;
+  background-color: #d1dbe4;
+  box-shadow: 0 4px 8px 0 rgba(57, 78, 96, 0.3);
+  border-radius: 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.widget span {
+  margin-top: auto;
+  margin-bottom: auto;
+
 }
 
 .amount {
   width:10vw;
   margin-left: 1vw;
   margin-right: auto;
-  font-size: large;
+  font-size: 120%;
 }
 
 .line {
@@ -78,19 +85,22 @@
   align-content: left;
   text-align: left;
   width: 40%;
+  font-size: 120%;
 }
 
-.category {
+.categorySpan {
   margin-left: auto; 
   margin-right: 2vw;
   width: 10vw;
   align-self:left;
 }
 
-.category button {
-  border-radius: 20px;
+.category {
+  border-radius: 25px;
   padding: 5px;
-  margin:5px;
+  border-width: 0;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .date {
@@ -117,12 +127,16 @@
   margin-left: auto; 
   margin-right: 2vw;
   visibility: hidden;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #personIcon {
   margin-left: auto; 
   margin-right: 2vw;
   visibility: hidden;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .frozen {

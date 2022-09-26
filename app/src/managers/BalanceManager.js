@@ -40,9 +40,9 @@ class BalanceManager {
         if (this.element !== null) {
             if (this.type === "main") {
                 let balanceElement = this.element.querySelector(".balancePanel");
-                balanceElement.querySelector(".balance").innerHTML = this.balance;
-                balanceElement.querySelector(".balanceGain").innerHTML = "Plus:  + " + this.balancePositive;
-                balanceElement.querySelector(".balanceLoss").innerHTML = "Minus:  - " + Math.abs(this.balanceNegative);
+                balanceElement.querySelector(".balance").innerHTML = this.balance + " €";
+                balanceElement.querySelector(".balanceGain").innerHTML = "+ " + this.balancePositive + " €";
+                balanceElement.querySelector(".balanceLoss").innerHTML = "- " + Math.abs(this.balanceNegative) + " €";
 
                 if(this.weekChart !== null) {
                     this.weekChart.destroy();
