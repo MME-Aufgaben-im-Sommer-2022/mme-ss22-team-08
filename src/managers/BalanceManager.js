@@ -4,33 +4,35 @@ class BalanceManager {
         this.balance = 0;
         this.balanceNegative = 0;
         this.balancePositive = 0;
-        this.startCredit = 100;
+        this.startCredit = 0;
         this.element = null;
         this.type = type;
         this.widgetList = [];
         this.weekChart = null;
         this.categoryChart = null;
+        this.savingChart = null;
     }
 
     updateStatistics(widgetList) {
         this.widgetList = widgetList;
         let credit = this.startCredit,
-         creditLoss = 0, creditGain = 0;
+         creditLoss = 0, creditGain = 0, today = new Date();
         for(let i = 0; i< widgetList.length; i++) {
             credit += parseFloat(widgetList[i].amount);
-            
-            console.log(credit);
-            if (widgetList[i].signPositive) {
-                creditGain += parseFloat(widgetList[i].amount);
-            } else {
-                creditLoss += parseFloat(widgetList[i].amount);
+
+            console.log("0" + (today.getMonth()+1) + " // " + widgetList[i].date.split("-")[1]);
+            if(today.getMonth()+1 === widgetList[i].date.split("-")[1] || "0" + (today.getMonth()+1) === widgetList[i].date.split("-")[1]) {
+                if (widgetList[i].signPositive) {
+                    creditGain += parseFloat(widgetList[i].amount);
+                } else {
+                    creditLoss += parseFloat(widgetList[i].amount);
+                }
             }
+            
         }
         this.balance = credit;
         this.balancePositive = creditGain;
         this.balanceNegative = creditLoss;
-        console.log("Try to update");
-        console.log(this.balance);
         this.updatePanels();
     }
 
@@ -38,9 +40,9 @@ class BalanceManager {
         if (this.element !== null) {
             if (this.type === "main") {
                 let balanceElement = this.element.querySelector(".balancePanel");
-                balanceElement.querySelector(".balance").innerHTML = this.balance;
-                balanceElement.querySelector(".balanceGain").innerHTML = "Plus:  + " + this.balancePositive;
-                balanceElement.querySelector(".balanceLoss").innerHTML = "Minus:  - " + Math.abs(this.balanceNegative);
+                balanceElement.querySelector(".balance").innerHTML = this.balance + " €";
+                balanceElement.querySelector(".balanceGain").innerHTML = "+ " + this.balancePositive + " €";
+                balanceElement.querySelector(".balanceLoss").innerHTML = "- " + Math.abs(this.balanceNegative) + " €";
 
                 if(this.weekChart !== null) {
                     this.weekChart.destroy();
@@ -65,6 +67,18 @@ class BalanceManager {
                     chartCategoryElement,
                     this.updateCategoryChart(),
                   );
+                
+                if(this.savingChart !== null) {
+                    this.savingChart.destroy();
+                }
+
+                // eslint-disable-next-line one-var
+                let chartSavingElement = this.element.querySelector("#savingChart");
+                // eslint-disable-next-line no-undef
+                this.savingChart = new Chart(
+                    chartSavingElement,
+                    this.updateSavingsChart(),
+                  );
             }
         }
     }
@@ -83,8 +97,6 @@ class BalanceManager {
 
          Einnahmen = [],
          Ausgaben = [];
-
-        console.log(firstWeekDay + " // " + today + " // " + day.getDay());
         for(let iDay = firstWeekDay; iDay <= today; iDay++) {
             let dayPlus = 0,
                 dayMinus = 0;
@@ -102,7 +114,6 @@ class BalanceManager {
             Ausgaben.push(dayMinus);
         }
         
-        console.log(firstWeekDay + "." + month + ".");
         const labels = [
             'Montag',
             'Dienstag',
@@ -140,11 +151,11 @@ class BalanceManager {
 
     updateCategoryChart() {
         const categories = [
-            "Einnahmen",
             "Freizeit",
             "Haushalt",
             "Unterhaltung",
-            "Fortbewegungsmittel",
+            "Fortbewegung",
+            "Lebensmittel",
             "Versicherung",
             "Sonstiges",
         ];
@@ -157,15 +168,12 @@ class BalanceManager {
             categoryData[i] = 0;
             for (let j = 0; j < this.widgetList.length; j++) {
                 let month = this.widgetList[j].date.split("-")[1];
-                console.log(currentMonth + " // " + month);
                 if((currentMonth === month || "0" + currentMonth === month) && this.widgetList[j].category === categories[i]) {
                     console.log(this.widgetList[j].amount);
                     categoryData[i] += parseFloat(this.widgetList[j].amount);
                 }
             }
         }
-
-        console.log(categoryData);
         
         // eslint-disable-next-line one-var
         const data = {
@@ -192,6 +200,30 @@ class BalanceManager {
           };
 
           return config;
+    }
+
+    updateSavingsChart() {
+        const data = {
+            datasets: [{
+                label: 'My First Dataset',
+                data: [50, 10],
+                backgroundColor: [
+                'rgb(0, 140, 255)',
+                'rgb(0,0,0,0)',
+                ],
+                hoverOffset: 4,
+            }],
+            },
+
+
+            config = {
+                type: 'doughnut',
+                data: data,
+                options: {cutout: "90%",
+                        scale: "50%"},
+                };
+
+        return config;
     }
 }
 

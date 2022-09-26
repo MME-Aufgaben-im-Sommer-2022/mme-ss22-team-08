@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MME: Projekte im SS 2022</title>
+    <link rel="stylesheet" href="./resources/css/styleOption.css">
+</head>
+
+<body>
+    <div class="ui">
+        <div id="sidebar" class="sidebar">
+            <a href="./pageMain.html">
+                <img src="./resources/home.png" width="40vw" height="40vw" alt="Home">
+            </a>
+            <a href="./pageDetail.html">
+                <img src="./resources/write.png" width="40vw" height="40vw" alt="Detail">
+            </a>
+            <a href="./pageSaving.html">
+                <img src="./resources/wallet.png" width="40vw" height="40vw" alt="Saving Goal">
+            </a>
+            <a href="./pageOption.html">
+                <img src="./resources/options.png" width="40vw" height="40vw" alt="Options" class="sidebarSelected">
+            </a>
+        </div>
+        <div class="optionPage">
+            <h1>Optionen</h1>
+            <div class="menu">
+                <div class="popupInfo">
+                    <span class="inputSpan">
+                        <p>Startguthaben setzten:</p>
+                        <input class="inputStartAmount" type="number">
+                        <p>€</p>
+                        <button id="changeStartAmount">OK</button>
+                    </span>
+                    <hr class="solid">
+                    <h3> Email-Adresse ändern</h3>
+                    <span class="inputSpan">
+                        <p>Neue Email:</p>
+                        <input class="inputNewMail">
+                    </span>
+                    <span class="inputSpan">
+                        <p>Passwort:</p>
+                        <input class="inputPassword"> <br>
+                    </span>
+                    <span class="inputSpan">
+                        <p id="mailText"></p>
+                        <button id="changeMail">Email ändern</button>
+                    </span>
+                    <hr class="solid">
+                    <span class="inputSpan">
+                        <p>Alle Einträge löschen:</p>
+                        <button class="Danger" id="deleteItems">Alle Einträge löschen</button>
+                    </span>
+                    <hr class="solid">
+                    <span class="inputSpan">
+                        <p>Ausloggen:</p>
+                        <button class="Danger" id="deleteSession">Ausloggen</button>
+                    </span>
+
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@9.0.1/dist/iife/sdk.min.js"></script>
+    <script type="module" src="./src/indexOption.js"></script>
+</body>
+
+</html>
