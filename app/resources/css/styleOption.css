@@ -105,8 +105,9 @@ button.Danger{
 
 .inputSpan input{
   padding: 1%;
-  padding-left: 10%;
+  padding-left: 2%;
   border-radius: 25px;
+  width: 20vw;
   height:4vh;
   border-width: 0;
   margin: auto auto auto 1vw;

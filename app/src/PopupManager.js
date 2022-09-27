@@ -72,7 +72,7 @@ class PopupManager{
             title = document.querySelector(".inputTitle").value,
             date = document.querySelector(".inputDate").value,
             categoryId = document.querySelector('input[name="category"]:checked').id,
-            category = document.querySelector('label[for=' + categoryId + ']').innerHTML,
+            category = document.querySelector('label[for=' + categoryId + ']').firstChild.innerHTML,
             person = document.querySelector(".inputPerson").value,
             repeated = document.querySelector(".inputRepeat").checked;
 

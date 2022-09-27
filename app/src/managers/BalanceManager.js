@@ -5,6 +5,7 @@ class BalanceManager {
         this.balanceNegative = 0;
         this.balancePositive = 0;
         this.startCredit = 0;
+        this.savingGoal = 100;
         this.element = null;
         this.type = type;
         this.widgetList = [];
@@ -39,6 +40,18 @@ class BalanceManager {
     updatePanels() {
         if (this.element !== null) {
             if (this.type === "main") {
+                if(this.savingChart !== null) {
+                    this.savingChart.destroy();
+                }
+                // eslint-disable-next-line one-var
+                let chartSavingElement = this.element.querySelector("#savingChart");
+                // eslint-disable-next-line no-undef
+                this.savingChart = new Chart(
+                    chartSavingElement,
+                    this.updateSavingsChart(),
+                  );
+                
+                // eslint-disable-next-line one-var
                 let balanceElement = this.element.querySelector(".balancePanel");
                 balanceElement.querySelector(".balance").innerHTML = this.balance + " €";
                 balanceElement.querySelector(".balanceGain").innerHTML = "+ " + this.balancePositive + " €";
@@ -68,17 +81,6 @@ class BalanceManager {
                     this.updateCategoryChart(),
                   );
                 
-                if(this.savingChart !== null) {
-                    this.savingChart.destroy();
-                }
-
-                // eslint-disable-next-line one-var
-                let chartSavingElement = this.element.querySelector("#savingChart");
-                // eslint-disable-next-line no-undef
-                this.savingChart = new Chart(
-                    chartSavingElement,
-                    this.updateSavingsChart(),
-                  );
             }
         }
     }
@@ -203,10 +205,36 @@ class BalanceManager {
     }
 
     updateSavingsChart() {
+        let date = new Date(),
+            currentMonth = date.getMonth()+1,
+            alreadySaved = 0, savedPercent = 0, leftPercent = 0;
+        for(let i = 0; i < this.widgetList.length; i++) {
+            let month = this.widgetList[i].date.split("-")[1];
+            if(currentMonth === month || "0" + currentMonth === month) {
+                if(this.widgetList[i].category === "Sparen") {
+                    if (this.widgetList[i].signPositive) {
+                        this.widgetList[i].amount *= -1;
+                        this.widgetList[i].signPositive = false;
+                    }
+                    alreadySaved += parseFloat(Math.abs(this.widgetList[i].amount));
+                }
+            }
+            
+        }
+        savedPercent = parseInt((alreadySaved / this.savingGoal)* 100);
+        leftPercent = 100 - savedPercent;
+
+        document.querySelector(".percentage").innerHTML = savedPercent + "%";
+
+        if(savedPercent >= 100) {
+            leftPercent = 0;
+            savedPercent = 100;
+        }
+
         const data = {
             datasets: [{
                 label: 'My First Dataset',
-                data: [50, 10],
+                data: [savedPercent, leftPercent],
                 backgroundColor: [
                 'rgb(0, 140, 255)',
                 'rgb(0,0,0,0)',

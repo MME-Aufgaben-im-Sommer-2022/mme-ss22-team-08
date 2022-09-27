@@ -50,6 +50,9 @@ function createWidgetsFromJson(json, manager) {
     if(json[0].startCredit !== undefined) {
         manager.balanceManager.startCredit = parseInt(json[0].startCredit);
     }
+    if(json[0].savingGoal !== undefined) {
+        manager.balanceManager.savingGoal = parseInt(json[0].savingGoal);
+    }
     let newWidgetList = [];
     for(let i = 1; i < json.length; i++) {
         let obj = json[i];
@@ -198,6 +201,7 @@ class Manager{
             meta = {
                 updateDate: this.updatedMonth,
                 startCredit: this.balanceManager.startCredit,
+                savingGoal: this.balanceManager.savingGoal,
             };
         objectList.push (meta);
         for(let i = 0; i < this.widgetList.length; i++) {

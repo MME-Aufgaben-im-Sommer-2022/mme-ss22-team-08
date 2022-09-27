@@ -7,6 +7,8 @@ const client = new Appwrite.Client(),
     // eslint-disable-next-line no-undef
     //users = new sdk.Users(client);
 
+let lastData = "";
+
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) {
@@ -23,64 +25,66 @@ function setupServerConnection() {
 
 function init() {
     setupServerConnection();
-    let changeAmountButton = document.querySelector("#changeStartAmount"),
-        changeMailButton = document.querySelector("#changeMail"),
-        deleteItemsButton = document.querySelector("#deleteItems"),
-        deleteSessionButton = document.querySelector("#deleteSession"),
+    let changeAmountButton = document.querySelector("button"),
         userId = getCookie("userId");
+    getData(userId);
     changeAmountButton.onclick = function() {
-        database.getDocument('63244466832556b90656', userId)
-        .then(response => {
-            console.log(response.data);
-            let data = JSON.parse(response.data),
-                meta = {
-                    updateDate: data[0].updateDate,
-                    startCredit: document.querySelector(".inputStartAmount").value,
-            };
-            data[0] = meta;
-            console.log(JSON.stringify(data));
-            updateData(JSON.stringify(data), userId);
-        }, error => {
-            console.log(error);
-        });
-    };
-    changeMailButton.onclick = function() {
-        let mailElement = document.querySelector(".inputNewMail"),
-            passwordElement = document.querySelector(".inputPassword");
-        account.updateEmail(mailElement.value, passwordElement.value)
-            .then(response => {
-                document.querySelector("#mailText").innerHTML = "Email-Adresse erfolgreich zu " + mailElement.value + " geändert.";
-                mailElement.value = "";
-                passwordElement.value = "";
-                console.log(response);
-            }, error => {
-                console.log(error);
-            });
-    };
-    deleteItemsButton.onclick = function() {
-        let newData = {};
-        database.updateDocument('63244466832556b90656', userId, {data: JSON.stringify(newData)})
-            .then(response => {
-                console.log(response);
-                //parseJsonDoc(response.data);
-            }, error => {
-                console.log(error);
-            });
-    };
-    deleteSessionButton.onclick = function() {
-        document.cookie = "userId=";
-        window.location.replace("./pageLogin.html");
+        if (document.querySelector("input").value === "") {return;}
+        updateData(lastData, userId);
     };
 }
 
+function getData(userId) {
+    database.getDocument('63244466832556b90656', userId)
+        .then(response => {
+            console.log(response.data);
+            let data = JSON.parse(response.data);
+            lastData = data;
+            loadPage(data);
+        }, error => {
+            console.log(error);
+        });
+}
 
+function loadPage(data) {
+    let date = new Date(),
+        currentMonth = date.getMonth()+1,
+        currentGoal = data[0].savingGoal, currentProgress = 0;
+    for (let i = 1; i < data.length; i++) {
+        let month = data[i].date.split("-")[1];
+        if(currentMonth === month || "0" + currentMonth === month) {
+            if (data[i].category === "Sparen") {
+                currentProgress += parseFloat(Math.abs(data[i].amount));
+            }
+        }
+        
+    }
+    // eslint-disable-next-line one-var
+    let daysLeft = 30-date.getDate(),
+        weeksLeft = parseInt(daysLeft/7)+1;
+    document.querySelector(".goal").innerHTML = "Aktuelles Sparziel: " + currentGoal + "€";
+    document.querySelector(".progress").innerHTML = "Aktuell gesparrt: " + currentProgress + "€";
+    if(currentGoal > currentProgress) {
+        document.querySelector(".leftAmount").innerHTML = "Sie müssen jede Woche noch " + ((currentGoal-currentProgress)/weeksLeft) + "€ sparen um ihr Sparziel zu erreichen";
+    } else {
+        document.querySelector(".leftAmount").innerHTML = "Toll! Sie haben ihr Sparziel erreicht";
+    }
+
+}
 
 function updateData(newData, userId) {
-    console.log(newData);
-    database.updateDocument('63244466832556b90656', userId, {data: newData})
+    let meta = {
+        updateDate: newData[0].updateDate,
+        startCredit: newData[0].startCredit,
+        savingGoal: document.querySelector("input").value,
+    };
+    newData[0] = meta;
+    console.log(JSON.stringify(newData));
+    
+    database.updateDocument('63244466832556b90656', userId, {data: JSON.stringify(newData)})
             .then(response => {
                 console.log(response);
-                //parseJsonDoc(response.data);
+                window.location.replace("./pageSaving.html");
             }, error => {
                 console.log(error);
             });

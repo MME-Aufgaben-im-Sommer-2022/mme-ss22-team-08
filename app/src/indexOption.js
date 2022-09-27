@@ -29,6 +29,7 @@ function init() {
         deleteSessionButton = document.querySelector("#deleteSession"),
         userId = getCookie("userId");
     changeAmountButton.onclick = function() {
+        if (document.querySelector(".inputStartAmount").value === "") {return;}
         database.getDocument('63244466832556b90656', userId)
         .then(response => {
             console.log(response.data);
