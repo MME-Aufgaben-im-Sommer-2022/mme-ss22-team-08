@@ -56,11 +56,30 @@
   border-radius: 25px;
 }
 
+.popupInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 5%;
+  height: 100%;
+  text-align: center;
+}
+
 hr.solid {
   border-top: 8px solid #bbb;
   border-radius: 5px;
   width:90%;
   border-color: #818181;
+}
+
+input{
+  padding: 1%;
+  padding-left: 2%;
+  border-radius: 25px;
+  width: 20vw;
+  height:4vh;
+  border-width: 0;
+  margin: auto auto auto 1vw;
 }
 
 button{
@@ -72,40 +91,30 @@ button{
   width: fit-content;
   height: 2.5vw;
   font-family: 'Raleway', sans-serif;
-  margin-right: 0;
-  margin-left: auto;
+  margin: auto 0 auto 2vw;
+  padding: 10px;
 }
 
-button.Danger{
-  border-width: 0px;
-  border-radius: 10px;
-  background-color:red;
-  font-size: 100%;
-  color: #ffffff;
-  width: fit-content;
-  height: 2.5vw;
-  font-family: 'Raleway', sans-serif;
-  margin-right: 0;
-  margin-left: auto;
-}
-
-.inputSpan {
-  text-align: left;
-  width: 90%;
-  padding: 1%;
-  margin-top: 3vh;
+.row {
+  align-content: right;
   display: flex;
   flex-direction: row;
-  margin-left: 5%;
+  margin-right: 10%;
+  margin-left: auto;
+  width: fit-content;
 }
 
-h2{
-  margin-left: 5%;
+
+h3 {
+  align-self: right;
+  text-align: right;
+  margin-right: 10%;
 }
 
-.inputSpan input {
-  padding: 1%;
-  padding-left: 10%;
+h2 {
+  align-self: right;
+  text-align: right;
+  margin-right: 10%;
 }
 
 h1 {

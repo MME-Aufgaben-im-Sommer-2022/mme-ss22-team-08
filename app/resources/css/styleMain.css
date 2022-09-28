@@ -93,6 +93,7 @@ margin-left: 10%;
 
   .savingPanel {
     height: 45vh;
+    position:relative;
   }
 
   .categoryPanel {
@@ -104,9 +105,9 @@ margin-left: 10%;
   }
 
   .constraint {
-    max-width: 32vh;
+    max-width: 30vh;
     width: auto;
-    max-height: 32vh;
+    max-height: 30vh;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -300,7 +301,7 @@ margin-left: 10%;
 
 .inputSpan input {
   padding: 1%;
-  padding-left: 10%;
+  padding-left: 5%;
   border-radius: 25px;
   height:4vh;
   border-width: 0;
@@ -521,4 +522,27 @@ input[type="radio"]{
   margin-top: 5vh;
   margin-left: 1vw;
   margin-right: 1vw;
+}
+
+.percentage {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1);
+  font-family: 'Raleway', sans-serif;
+  font-size: 200%;
+  margin: auto auto;
+}
+
+.changeSavings{
+  border-width: 0px;
+  border-radius: 10px;
+  background-color:#008cff;
+  font-size: 100%;
+  color: #ffffff;
+  height: fit-content;
+  min-height: 2vw;
+  font-family: 'Raleway', sans-serif;
+  margin: 1vh auto auto auto;
+  padding: 1vh;
 }
