@@ -1,8 +1,6 @@
 // eslint-disable-next-line no-undef
 const client = new Appwrite.Client(),
     // eslint-disable-next-line no-undef
-    account = new Appwrite.Account(client),
-    // eslint-disable-next-line no-undef
     database = new Appwrite.Databases(client,"6324444bf0c125e7623c");
     // eslint-disable-next-line no-undef
     //users = new sdk.Users(client);

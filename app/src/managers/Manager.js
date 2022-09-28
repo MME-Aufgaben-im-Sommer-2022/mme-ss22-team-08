@@ -136,6 +136,7 @@ class Manager{
         let today = new Date();
         this.month = (today.getMonth()+1) + "-" + today.getFullYear();
         this.updatedMonth = "8-2022";
+        this.shownMonth = "";
         console.log(this.month);
         console.log(this.widgetList);
     }
@@ -164,9 +165,19 @@ class Manager{
         for (let i = 0; i < this.widgetList.length; i++) {
             this.widgetList[i].element.remove();
         }
-        for (let i = 0; i < this.widgetList.length; i++) {
-            this.addWidget(this.widgetList[i]);
+        if (this.type==="detail" && this.shownMonth !== "") {
+            let month = this.shownMonth.split("-")[1], year = this.shownMonth.split("-")[0];
+            for (let i = 0; i < this.widgetList.length; i++) {
+                if (this.widgetList[i].date.split("-")[1] === month && this.widgetList[i].date.split("-")[0] === year) {
+                    this.addWidget(this.widgetList[i]);
+                }
+            }
+        } else {
+            for (let i = 0; i < this.widgetList.length; i++) {
+                this.addWidget(this.widgetList[i]);
+            }
         }
+        
         this.balanceManager.updateStatistics(this.widgetList);
         this.updateServerData();
     }
