@@ -1,3 +1,4 @@
+//Code from previous MME-Projects provided by the university
 class Event {
     constructor(type, data) {
         this.type = type;
