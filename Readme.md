@@ -8,7 +8,6 @@ Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über d
 
 ### SmartFinance
 
-_Fassen Sie kurz die wichtigsten Features, die intendierte Zielgruppe und die grundlegende Motivation des Projekts zusammen. Nennen Sie die aktuell bereits implementierten Funktionen und verlinken Sie den aktuellsten Release._
 SmartFinance ist eine Web-Anwendung, die sich vor allem an junge Erwachsene (z.B. Studierende) richtet, welche noch nicht sehr erfahren mit Finanzen sind.
 Ziel des Projekts soll sein, dass man seine Ein- und Ausgaben im Überblick hat und es den Usern somit leichter fällt, die gewünschten Sparziele zu erreichen.
 
@@ -25,8 +24,6 @@ Implementierte Funktionen:
 
 
 ## Beschreibung & Anleitung
-
-_Beschreiben Sie die zentralen Funktionen Ihrer Anwendung und deren Verwendung. Nutzen Sie dazu Screenshots und/oder Videos. Verlinken Sie ein min. 60-sekündiges Demo-Video, das die Verwendung aller wichtigen Funktionen zeigt und in Form eines Audio-Kommentars beschreibt._
 
 Beim Aufruf der Website kann man sich mit seinem Account einloggen oder sich neu registrieren.
 
