@@ -6,6 +6,10 @@ Dieses Repository bildet die Grundlage für Ihre Projektarbeit und wurde über d
 
 ## Projekt
 
+Aktueller Release:
+
+[Release-Link](https://github.com/MME-Aufgaben-im-Sommer-2022/mme-ss22-team-08/releases/tag/v1.0 "Release-Link")
+
 ### SmartFinance
 
 SmartFinance ist eine Web-Anwendung, die sich vor allem an junge Erwachsene (z.B. Studierende) richtet, welche noch nicht sehr erfahren mit Finanzen sind.
@@ -17,7 +21,7 @@ Implementierte Funktionen:
  - Man kann Ein- und Ausgaben verwalten
  - Man kann Ausgaben für andere Personen markieren
  - Man kann bei Ein- und Ausgaben einstellen, dass diese monatlich stattfinden
- - Man kann Ein- und Ausgaben verschiedenen Kategirien zuordnen
+ - Man kann Ein- und Ausgaben verschiedenen Kategorien zuordnen
  - Man hat auf der Startseite einen Überblick über die Ein- und Ausgaben
  - Man kann sich einen Account erstellen
  - Die eingegebenen Daten der Nutzer*innen sind beim nächsten Login wieder verfügbar
@@ -35,17 +39,17 @@ Auf der Startseite bekommt man einen überblick über die Ein- und Ausgaben
 
 Mit dem "+"-Button im Bereich "Letzte Transaktionen" lassen sich neue Ein- und Ausgaben hinzufügen.
 
-Einnahme sollten zur Kategorie "Einnahmen" hinzugefügt werden.
+Einnahmen sollten zur Kategorie "Einnahmen" hinzugefügt werden.
 
 Sollte man Geld, welches man sparen möchte, beiseite gelegt haben, kann man diese Ausgabe zur Kategorie "sparen" hinzufügen. Die Sparziel-Anzeige gibt daraufhin an, wie nah man seinem Sparziel bereits gekommen ist.
 
 Ein- und Ausgaben, welche monatlich stattfinden (z.B. Gehalt, Abonnement, etc.) können mit dem Reiter "wiederholen" als solche gekennzeichnet werden.
 
-Sollte man Geld für eine Andere Person Ausgegeben haben, kann man diese Person in der Ausgabe vermerken.
+Sollte man Geld für eine andere Person Ausgegeben haben, kann man diese Person in der Ausgabe vermerken.
 
 ![Neue_Transaktion](/readme_resources/Neuer_Eintrag.PNG "Neuer Eintrag")
 
-Mit dem "Verwalten"-Button im Bereich "Letzte Transaktionen" auf der Hauptseite kommt man in das Verwaltungsmenü. Man kann dort Eintrage bearbeiten, löschen und neu erstellen. Ebenso können Ein- und Ausgaben nach dem Monat gefiltert werden.
+Mit dem "Verwalten"-Button im Bereich "Letzte Transaktionen" auf der Hauptseite kommt man in das Verwaltungsmenü. Man kann dort Einträge bearbeiten, löschen und neu erstellen. Ebenso können Ein- und Ausgaben nach dem Monat gefiltert werden.
 
 ![Verwalte_Transaktionen](/readme_resources/Finanzen_Verwalten.PNG "Verwalte Transaktionen")
 
@@ -67,7 +71,7 @@ Hier gibt es auch die Möglichkeit, sich auszuloggen.
 
 ###Demo Video
 
-[Demo](/readme_resources/Demo.mp4 "Optionen")
+[Demo](/readme_resources/Demo.mp4 "Demo-Video")
 
 ## Team
 
